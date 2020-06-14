@@ -3,12 +3,14 @@ package com.example.signup;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,6 +38,7 @@ public class UserApplicationActivity extends AppCompatActivity {
     String id;
     int size = -1;
     static int cnt = 0;
+    String matching_id = null;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -76,11 +79,38 @@ public class UserApplicationActivity extends AppCompatActivity {
 //    }
 
     public void updateFirebaseDB(String mId){
-        DatabaseReference hopperRef = conditionRef.child(mId);
-        Map<String, Object> hopperUpdates = new HashMap<>();
-        hopperUpdates.put("is_connected", "t");
+        DatabaseReference mDatabase = conditionRef.child(mId);
+        Map<String, Object> mDatabaseUpdates = new HashMap<>();
+        mDatabaseUpdates.put("is_connected", "t");
 
-        hopperRef.updateChildren(hopperUpdates);
+        mDatabase.updateChildren(mDatabaseUpdates);
+    }
+
+    // sitting detail info db에서 견주들 목록 받아옴
+    public void getMatchingId(final String mId){
+
+        conditionRef.addValueEventListener(new ValueEventListener() {
+
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+
+                    SittingApplicationInfo get = postSnapshot.getValue(SittingApplicationInfo.class);
+
+                    if(get.id.equals(mId)){
+                        matching_id = get.matching_id;
+                        Log.d("matching_id", matching_id);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.w("getFirebaseDatabase","loadPost:onCancelled", databaseError.toException());
+            }
+        });
     }
 
 
@@ -133,19 +163,34 @@ public class UserApplicationActivity extends AppCompatActivity {
         btn.setId(cnt++);
         btn.setBackgroundColor(getResources().getColor(R.color.purple1));
 
+        @SuppressLint("ResourceType") TextView t = findViewById(btn.getId()-1);
+        String seletedId = t.getText().toString();
+        final String[] splitedId = seletedId.split(" |\\.");
+
+        Toast.makeText(UserApplicationActivity.this, splitedId[2], Toast.LENGTH_SHORT).show();
+
         btn.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceType")
             @Override
             public void onClick(View v) {
-                TextView t = findViewById(btn.getId()-1);
-                String seletedId = t.getText().toString();
-                String[] splitedId = seletedId.split(" |\\.");
-                Log.d("clicked : ", splitedId[2]);
+//                TextView t = findViewById(btn.getId()-1);
+//                String seletedId = t.getText().toString();
+//                String[] splitedId = seletedId.split(" |\\.");
+//
+//                Toast.makeText(UserApplicationActivity.this, splitedId[2], Toast.LENGTH_SHORT).show();
+
+                getMatchingId(splitedId[2]);
                 updateFirebaseDB(splitedId[2]);
 
-                Intent intent = new Intent(UserApplicationActivity.this, Meeting.class);
-                intent.putExtra("id", id);
-                startActivity(intent);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(UserApplicationActivity.this, Meeting.class);
+                        intent.putExtra("id", id);
+                        intent.putExtra("matching_id", matching_id);
+                        startActivity(intent);
+                    }
+                }, 500);
             }
         });
 
@@ -161,6 +206,5 @@ public class UserApplicationActivity extends AppCompatActivity {
         textView.setId(cnt++);
         linearLayout.addView(textView);
     }
-
 
 }
