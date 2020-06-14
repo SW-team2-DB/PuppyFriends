@@ -1,8 +1,6 @@
 package com.example.signup;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,11 +10,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-
-
-
-public class HomeActivity extends Activity {
+public class HomeActivity extends AppCompatActivity {
     //4 : search , 5 : do , 6 : list
     Button listButton;
     Button searchSitterButton;
@@ -40,7 +36,7 @@ public class HomeActivity extends Activity {
         doSitterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, SitterApplicationActivity.class);
+                Intent intent = new Intent(HomeActivity.this, SettingConditionActivity.class);
                 intent.putExtra("id", id);
                 startActivity(intent);
             }
@@ -49,7 +45,7 @@ public class HomeActivity extends Activity {
         searchSitterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, OwnerApplicationActivity.class);
+                Intent intent = new Intent(HomeActivity.this, SettingDetailInfoActivity.class);
                 intent.putExtra("id", id);
                 startActivity(intent);
             }
@@ -70,23 +66,26 @@ public class HomeActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
         //or switch문을 이용하면 될듯 하다.
-        if (id == android.R.id.home) {
-            Intent homeIntent = new Intent(this, HomeActivity.class);
-            startActivity(homeIntent);
-        }
         if (id == R.id.action_account) {
-            Toast.makeText(this, "검색 클릭", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "내 정보", Toast.LENGTH_SHORT).show();
             return true;
         }
         if (id == R.id.action_home) {
-            Toast.makeText(this, "카메라", Toast.LENGTH_SHORT).show();
-            return true;
+            Intent homeIntent = new Intent(this, HomeActivity.class);
+            startActivity(homeIntent);
+        }
+        if (id == R.id.logout) {
+            Intent logoutIntent = new Intent(this, LogInActivity.class);
+            startActivity(logoutIntent);
         }
         if (id == R.id.action_button2) {
-            Intent settingIntent = new Intent(this, LogInActivity.class);
-            startActivity(settingIntent);
+            Intent ImageIntent = new Intent(this, ImageActivity.class);
+            startActivity(ImageIntent);
         }
-
+        if (id == R.id.chat) {
+            Intent chatIntent = new Intent(this, ChatActivity.class);
+            startActivity(chatIntent);
+        }
         return super.onOptionsItemSelected(item);
     }
 
