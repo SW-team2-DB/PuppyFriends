@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SitterApplicationActivity">
+
+    <TextView
+        android:id="@+id/price_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"
+        android:text="원하는 가격"
+        android:textSize="30sp"/>
+
+    <EditText
+        android:id="@+id/target_low_price"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:layout_toLeftOf="@+id/to"
+        android:layout_below="@id/price_txt"/>
+
+    <TextView
+        android:id="@+id/to"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="~"
+        android:textSize="30dp"
+        android:layout_below="@id/price_txt"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/target_high_price"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:layout_toRightOf="@+id/to"
+        android:layout_below="@id/price_txt"/>
+
+    <TextView
+        android:id="@+id/type_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:text="견종"
+        android:textSize="30sp"
+        android:layout_below="@id/target_low_price"/>
+
+    <Button
+        android:id="@+id/large_dog_selection_btn"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/type_txt"
+        android:layout_toLeftOf="@+id/middle_dog_selection_btn"
+        android:text="대형견"
+        android:textSize="20sp"
+        android:background="@color/blue1"/>
+
+    <Button
+        android:id="@+id/middle_dog_selection_btn"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/type_txt"
+        android:text="중형견"
+        android:textSize="20sp"
+        android:background="@color/blue2"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/small_dog_selection_btn"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/type_txt"
+        android:layout_toRightOf="@+id/middle_dog_selection_btn"
+        android:text="소형견"
+        android:textSize="20sp"
+        android:background="@color/blue3"/>
+
+    <TextView
+        android:id="@+id/distance_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:text="거리"
+        android:textSize="30sp"
+        android:layout_below="@id/small_dog_selection_btn"/>
+
+    <Button
+        android:id="@+id/close_distance_btn"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:layout_toLeftOf="@+id/middle_distance_btn"
+        android:layout_below="@+id/distance_txt"
+        android:text="동,읍,면"
+        android:textSize="20sp"
+        android:background="@color/blue1"/>
+
+    <Button
+        android:id="@+id/middle_distance_btn"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/distance_txt"
+        android:text="시,군"
+        android:textSize="20sp"
+        android:background="@color/blue2"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/extra_distance_btn"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/distance_txt"
+        android:layout_toRightOf="@+id/middle_distance_btn"
+        android:text="상관없음"
+        android:textSize="20sp"
+        android:background="@color/blue3"/>
+
+    <TextView
+        android:id="@+id/extra_service_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:text="추가 서비스 선택"
+        android:textSize="30sp"
+        android:layout_below="@id/middle_distance_btn"/>
+
+    <CheckBox
+        android:id="@+id/service_check1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check"
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+        android:layout_below="@id/extra_service_txt"/>
+
+    <CheckBox
+        android:id="@+id/service_check2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check"
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+        android:layout_below="@id/service_check1"/>
+
+    <CheckBox
+        android:id="@+id/service_check3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check"
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+        android:layout_below="@id/service_check2"/>
+
+    <CheckBox
+        android:id="@+id/service_check4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check"
+        android:textSize="20dp"
+        android:layout_margin="10dp"
+        android:layout_below="@id/service_check3"/>
+
+    <CheckBox
+        android:id="@+id/service_check5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check"
+        android:textSize="20dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/extra_service_txt"
+        android:layout_toRightOf="@+id/service_check1"/>
+
+    <CheckBox
+        android:id="@+id/service_check6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check"
+        android:textSize="20sp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/service_check1"
+        android:layout_toRightOf="@+id/service_check1"/>
+
+    <CheckBox
+        android:id="@+id/service_check7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check"
+        android:textSize="20sp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/service_check2"
+        android:layout_toRightOf="@+id/service_check1"/>
+
+    <CheckBox
+        android:id="@+id/service_check8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check"
+        android:textSize="20sp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/service_check3"
+        android:layout_toRightOf="@+id/service_check1"/>
+
+    <Button
+        android:id="@+id/next_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:textSize="30sp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/blue3"/>
+
+
+</RelativeLayout>
