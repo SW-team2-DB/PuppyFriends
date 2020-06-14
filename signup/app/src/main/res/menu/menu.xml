@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".HomeActivity">
+    tools:context=".HomeActivity2">
 
     <item android:id="@+id/action_account"
         android:title="acoount"
@@ -22,5 +22,8 @@
         app:showAsAction="ifRoom"/>
     <item android:id="@+id/action_button2"
         android:title="image"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_button_edit_profile"
+        android:title="프로필 편집"
         app:showAsAction="ifRoom"/>
 </menu>
