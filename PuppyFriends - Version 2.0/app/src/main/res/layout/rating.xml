@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background">
 
     <LinearLayout
         android:id="@+id/ratingtoplayout"
@@ -16,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -42,7 +44,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
+                android:layout_marginTop="20dp"
                 android:text="평점을 남겨주세요"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
                 android:textSize="20sp" />
 
             <LinearLayout
@@ -205,6 +210,8 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="5dp"
                 android:text="후기를 남겨주세요"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
                 android:textSize="20sp" />
 
             <EditText
@@ -231,6 +238,10 @@
             android:id="@+id/ratingbtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:background="@color/colorPrimary"
+            android:text="등록하기"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
     </LinearLayout>
 </RelativeLayout>
