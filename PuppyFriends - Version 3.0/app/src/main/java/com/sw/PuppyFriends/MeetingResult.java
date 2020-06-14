@@ -1,12 +1,10 @@
-﻿package com.example.signup;
+package com.sw.PuppyFriends;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +27,8 @@ public class MeetingResult extends AppCompatActivity {
     private String sitter_id;
 
     private Button agree;
+
+    private String dtdtdt;
 
     private Boolean isSitter = false;
 
@@ -62,6 +62,8 @@ public class MeetingResult extends AppCompatActivity {
         meetingresult9 = (TextView)findViewById(R.id.meetingresult9);
         meetingresult10 = (TextView)findViewById(R.id.meetingresult10);
 
+
+
         agree = (Button)findViewById(R.id.result_agree_btn);
         agree.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -70,11 +72,12 @@ public class MeetingResult extends AppCompatActivity {
                 if(!isSitter){
                     //견주라면 펫시터 동의 기다리기
                     mReference.child("matching").child(matching_id).child("사전만남").child("owner_agree").setValue("yes");
-                    Intent intent = new Intent(getApplicationContext(), Waiting.class);
+                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                     intent.putExtra("matching_id", matching_id);
-                    intent.putExtra("owner_id", owner_id);
+                    intent.putExtra("id", owner_id);
                     intent.putExtra("sitter_id", sitter_id);
                     intent.putExtra("usertype", "owner");
+//                    intent.putExtra("돌봄시간", dtdtdt);
                     startActivity(intent);
                     finish();
                 }
@@ -86,7 +89,7 @@ public class MeetingResult extends AppCompatActivity {
                     intent.putExtra("usertype", "sitter");
                     intent.putExtra("owner_id", owner_id);
                     intent.putExtra("sitter_id", sitter_id);
-                    intent.putExtra("돌봄시간", (Parcelable) meetingresult10);
+//                    intent.putExtra("돌봄시간", dtdtdt);
                     startActivity(intent);
                     finish();
                 }
@@ -231,10 +234,11 @@ public class MeetingResult extends AppCompatActivity {
             }
         });
 
-        mReference.child(root1).child(root2).child("돌봄시간").child(meeting10).addListenerForSingleValueEvent(new ValueEventListener() {
+        mReference.child(root1).child(root2).child("사전만남").child(meeting10).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                meetingresult10.setText(dataSnapshot.getValue().toString());
+                dtdtdt = dataSnapshot.getValue().toString();
+                meetingresult10.setText(dtdtdt);
             }
 
             @Override

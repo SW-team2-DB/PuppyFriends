@@ -69,7 +69,7 @@
                     <ImageView
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:src="@drawable/dog1" />
+                        android:src="@drawable/dog2" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -106,16 +106,16 @@
                     <ImageView
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:src="@drawable/dog1" />
+                        android:src="@drawable/dog4" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="ddd"
+                        android:text="펫시터 목록"
                         android:textAlignment="center" />
 
                     <Button
-                        android:id="@+id/button5"
+                        android:id="@+id/sitterlistbtn"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
@@ -152,7 +152,7 @@
                     <ImageView
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:src="@drawable/dog1" />
+                        android:src="@drawable/dog3" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -194,11 +194,11 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="sss"
+                        android:text="돌봄 확인"
                         android:textAlignment="center" />
 
                     <Button
-                        android:id="@+id/button7"
+                        android:id="@+id/sittingcheck"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"

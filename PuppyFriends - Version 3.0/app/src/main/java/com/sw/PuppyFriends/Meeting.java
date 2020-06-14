@@ -1,4 +1,4 @@
-﻿package com.example.signup;
+package com.sw.PuppyFriends;
 
 import android.content.Intent;
 import android.os.Bundle;

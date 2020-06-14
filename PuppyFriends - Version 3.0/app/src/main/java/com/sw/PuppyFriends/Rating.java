@@ -1,8 +1,7 @@
-﻿package com.example.signup;
+package com.sw.PuppyFriends;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -246,11 +245,12 @@ public class Rating extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(terminateOK) {
-//                    dataSnapshot.child(my_id).child("application_id").getRef().setValue("");
-
+//                    dataSnapshot.child("application_id").getRef().setValue("");
+                    databaseReference.child("sitting_application_info").push().child("application_id").setValue(my_id+":done");
                     for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
                         postSnapshot.getRef().removeValue();
                     }
+
 
                 }
             }
