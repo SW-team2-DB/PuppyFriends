@@ -62,7 +62,7 @@
 
     <Button
         android:id="@+id/day5_select_btn"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
@@ -74,7 +74,7 @@
 
     <Button
         android:id="@+id/day10_select_btn"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_margin="10dp"
         android:layout_below="@+id/type_txt"
@@ -85,7 +85,7 @@
 
     <Button
         android:id="@+id/extra_day_select_btn"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_margin="10dp"
         android:layout_below="@+id/type_txt"
