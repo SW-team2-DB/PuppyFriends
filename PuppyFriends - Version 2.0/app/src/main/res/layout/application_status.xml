@@ -32,11 +32,6 @@
             android:layout_margin="10dp"
             android:background="#FFFFFF">
 
-            <Button
-                android:id="@+id/btn_next"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="매칭 진행하기" />
         </LinearLayout>
 
     </ScrollView>
