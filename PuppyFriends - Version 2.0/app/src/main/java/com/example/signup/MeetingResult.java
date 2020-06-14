@@ -1,7 +1,11 @@
 package com.example.signup;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,11 +21,31 @@ public class MeetingResult extends AppCompatActivity {
     private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference mReference =  mDatabase.getReference();
 
-    private TextView meetingresult1, meetingresult2, meetingresult3, meetingresult4, meetingresult5, meetingresult6, meetingresult7, meetingresult8, meetingresult9;
+    private TextView meetingresultownerid, meetingresultsitterid, meetingresult1, meetingresult2, meetingresult3, meetingresult4, meetingresult5, meetingresult6, meetingresult7, meetingresult8, meetingresult9;
+
+    private String matching_id;
+    private String owner_id;
+    private String sitter_id;
+
+    private Button agree;
+
+    private Boolean isSitter = false;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.meeting_result);
+
+        Intent intent = getIntent();
+        matching_id = intent.getExtras().getString("matching_id");
+        owner_id = intent.getExtras().getString("owner_id");
+        sitter_id = intent.getExtras().getString("sitter_id");
+
+        isSitter = intent.getExtras().getBoolean("isSitter");
+
+        meetingresultownerid = (TextView)findViewById(R.id.meetingresultownerid);
+        meetingresultsitterid = (TextView)findViewById(R.id.meetingresultsitterid);
+        meetingresultownerid.setText("견주 : "+owner_id);
+        meetingresultsitterid.setText("펫시터 : "+sitter_id);
 
         meetingresult1 = (TextView)findViewById(R.id.meetingresult1);
         meetingresult2 = (TextView)findViewById(R.id.meetingresult2);
@@ -33,11 +57,41 @@ public class MeetingResult extends AppCompatActivity {
         meetingresult8 = (TextView)findViewById(R.id.meetingresult8);
         meetingresult9 = (TextView)findViewById(R.id.meetingresult9);
 
+        agree = (Button)findViewById(R.id.result_agree_btn);
+        agree.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
 
-        //이건 임시로. 데이터베이스에 맞도록 수정
-        String root1 = "test";
-        //이건 임시로. 데이터베이스에서 매칭ID 받아오기
-        String root2 = "매칭임시";
+                if(!isSitter){
+                    //견주라면 펫시터 동의 기다리기
+                    mReference.child("matching").child(matching_id).child("사전만남").child("owner_agree").setValue("yes");
+                    Intent intent = new Intent(getApplicationContext(), Waiting.class);
+                    intent.putExtra("matching_id", matching_id);
+                    intent.putExtra("owner_id", owner_id);
+                    intent.putExtra("sitter_id", sitter_id);
+                    intent.putExtra("usertype", "owner");
+                    startActivity(intent);
+                }
+                else if(isSitter){
+                    //펫시터라면 돌봄 진행중 화면으로
+                    mReference.child("matching").child(matching_id).child("사전만남").child("sitter_agree").setValue("yes");
+                    Intent intent = new Intent(getApplicationContext(), SittingOngoing.class);
+                    intent.putExtra("matching_id", matching_id);
+                    intent.putExtra("usertype", "sitter");
+                    intent.putExtra("owner_id", owner_id);
+                    intent.putExtra("sitter_id", sitter_id);
+                    startActivity(intent);
+                }
+
+            }
+        });
+
+
+        //데이터베이스 구조 "matching"/matching_id/"사전만남"
+        //데이터베이스에 맞도록 수정
+        String root1 = "matching";
+        //인텐트로 받아온 매칭id
+        String root2 = matching_id;
 
         String meeting1 = "날짜";
         String meeting2 = "장소";
@@ -50,7 +104,7 @@ public class MeetingResult extends AppCompatActivity {
         String meeting9 = "가격";
 
         //날짜
-        mReference.child(root1).child(root2).child(meeting1).addListenerForSingleValueEvent(new ValueEventListener() {
+        mReference.child(root1).child(root2).child("사전만남").child(meeting1).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 meetingresult1.setText(dataSnapshot.getValue().toString());
@@ -63,7 +117,7 @@ public class MeetingResult extends AppCompatActivity {
         });
 
         //장소
-        mReference.child(root1).child(root2).child(meeting2).addListenerForSingleValueEvent(new ValueEventListener() {
+        mReference.child(root1).child(root2).child("사전만남").child(meeting2).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 meetingresult2.setText(dataSnapshot.getValue().toString());
@@ -76,7 +130,7 @@ public class MeetingResult extends AppCompatActivity {
         });
 
         //밥주는시간
-        mReference.child(root1).child(root2).child(meeting3).addListenerForSingleValueEvent(new ValueEventListener() {
+        mReference.child(root1).child(root2).child("사전만남").child(meeting3).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 meetingresult3.setText(dataSnapshot.getValue().toString());
@@ -89,7 +143,7 @@ public class MeetingResult extends AppCompatActivity {
         });
 
         //사료위치
-        mReference.child(root1).child(root2).child(meeting4).addListenerForSingleValueEvent(new ValueEventListener() {
+        mReference.child(root1).child(root2).child("사전만남").child(meeting4).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 meetingresult4.setText(dataSnapshot.getValue().toString());
@@ -102,7 +156,7 @@ public class MeetingResult extends AppCompatActivity {
         });
 
         //산책시간
-        mReference.child(root1).child(root2).child(meeting5).addListenerForSingleValueEvent(new ValueEventListener() {
+        mReference.child(root1).child(root2).child("사전만남").child(meeting5).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 meetingresult5.setText(dataSnapshot.getValue().toString());
@@ -115,7 +169,7 @@ public class MeetingResult extends AppCompatActivity {
         });
 
         //산책상세
-        mReference.child(root1).child(root2).child(meeting6).addListenerForSingleValueEvent(new ValueEventListener() {
+        mReference.child(root1).child(root2).child("사전만남").child(meeting6).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 meetingresult6.setText(dataSnapshot.getValue().toString());
@@ -128,7 +182,7 @@ public class MeetingResult extends AppCompatActivity {
         });
 
         //특이사항
-        mReference.child(root1).child(root2).child(meeting7).addListenerForSingleValueEvent(new ValueEventListener() {
+        mReference.child(root1).child(root2).child("사전만남").child(meeting7).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 meetingresult7.setText(dataSnapshot.getValue().toString());
@@ -142,7 +196,7 @@ public class MeetingResult extends AppCompatActivity {
         });
 
         //기타
-        mReference.child(root1).child(root2).child(meeting8).addListenerForSingleValueEvent(new ValueEventListener() {
+        mReference.child(root1).child(root2).child("사전만남").child(meeting8).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 meetingresult8.setText(dataSnapshot.getValue().toString());
@@ -156,7 +210,7 @@ public class MeetingResult extends AppCompatActivity {
         });
 
         //가격
-        mReference.child(root1).child(root2).child(meeting9).addListenerForSingleValueEvent(new ValueEventListener() {
+        mReference.child(root1).child(root2).child("사전만남").child(meeting9).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 meetingresult9.setText(dataSnapshot.getValue().toString());
