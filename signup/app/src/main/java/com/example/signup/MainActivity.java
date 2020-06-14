@@ -2,6 +2,9 @@ package com.example.signup;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -69,5 +72,39 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater = getMenuInflater();
+
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    //액션버튼을 클릭했을때의 동작
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            Intent homeIntent = new Intent(this, HomeActivity.class);
+            startActivity(homeIntent);
+        }
+        if (id == R.id.action_account) {
+            Toast.makeText(this, "내 정보", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if (id == R.id.action_home) {
+            Toast.makeText(this, "홈으로", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if (id == R.id.action_button2) {
+            Intent settingIntent = new Intent(this, LogInActivity.class);
+            startActivity(settingIntent);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
 }
