@@ -12,9 +12,24 @@
 
 
         <TextView
+            android:id="@+id/meetingownerid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/meetingsitterid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="20sp" />
+
+        <TextView
             android:id="@+id/textView13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:text="신청날짜"
             android:textSize="24sp" />
 
