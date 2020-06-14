@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="신청 정보"
-        android:textSize="30sp"
-        android:textColor="@color/blue3"
-        android:gravity="center"
-        android:textStyle="bold"/>
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="신청 정보"
+            android:textSize="30sp"
+            android:textColor="@color/purple3"
+            android:gravity="center"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
 
     <ScrollView
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">

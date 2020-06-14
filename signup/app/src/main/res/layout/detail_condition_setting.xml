@@ -1,51 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+<RelativeLayout
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SettingDetailInfoActivity">
 
     <TextView
         android:id="@+id/dog_info_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_toRightOf="@+id/dog_img"
+        android:layout_marginLeft="10dp"
         android:text="반려견 정보"
         android:textSize="20sp"/>
 
-    <ImageView
-        android:id="@+id/dog_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        tools:srcCompat="@tools:sample/avatars[5]"
-        android:contentDescription="TODO" />
-
     <EditText
-        android:id="@+id/dog_name_txt"
+        android:id="@+id/dog_name_inp_txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/dog_img"
+        android:layout_marginLeft="10dp"
         android:layout_below="@+id/dog_info_txt"
         android:layout_marginTop="5dp"
         android:hint="이름"/>
 
     <EditText
-        android:id="@+id/dog_breed_txt"
+        android:id="@+id/dog_breed_inp_txt"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/dog_name_txt"
-        android:layout_toRightOf="@+id/dog_img"
+        android:layout_below="@+id/dog_name_inp_txt"
+        android:layout_marginLeft="10dp"
         android:hint="견종"/>
 
     <EditText
-        android:id="@+id/dog_age_txt"
+        android:id="@+id/dog_age_inp_txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/dog_name_txt"
-        android:layout_toRightOf="@id/dog_breed_txt"
+        android:layout_below="@id/dog_name_inp_txt"
+        android:layout_toRightOf="@id/dog_breed_inp_txt"
         android:layout_marginRight="10dp"
         android:hint="나이"/>
 
@@ -57,104 +54,129 @@
         android:textSize="20sp"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
-        android:layout_below="@id/dog_breed_txt"/>
+        android:layout_below="@id/dog_breed_inp_txt"/>
 
     <EditText
-        android:id="@+id/owner_name_txt"
+        android:id="@+id/user_name_inp_txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/owner_info_txt"
         android:layout_margin="10dp"
         android:hint="이름"/>
 
-    <RadioButton
-        android:id="@+id/owner_male_btn"
+    <RadioGroup
+        android:id="@+id/radio_btn_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/owner_name_txt"
-        android:layout_margin="10dp"
-        android:hint="남"/>
+        android:orientation="horizontal"
+        android:layout_below="@+id/user_name_inp_txt">
 
-    <RadioButton
-        android:id="@+id/owner_female_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/owner_name_txt"
-        android:layout_toRightOf="@id/owner_male_btn"
-        android:layout_margin="10dp"
-        android:hint="여"/>
+        <RadioButton
+            android:id="@+id/male_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="남"/>
+
+        <RadioButton
+            android:id="@+id/female_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="여"/>
+
+    </RadioGroup>
 
     <EditText
-        android:id="@+id/owner_age_txt"
+        android:id="@+id/user_age_inp_txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/owner_name_txt"
+        android:layout_below="@id/user_name_inp_txt"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="10dp"
-        android:layout_toRightOf="@id/owner_female_btn"
+        android:layout_toRightOf="@+id/radio_btn_group"
         android:hint="나이"/>
 
     <TextView
         android:id="@+id/location_txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="반려견을 위탁하고 싶은 장소"
+        android:text="반려견을 위탁하고 싶은 위치"
         android:textSize="20dp"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
-        android:layout_below="@id/owner_male_btn"/>
+        android:layout_below="@id/radio_btn_group"/>
 
     <EditText
-        android:id="@+id/addr_txt"
+        android:id="@+id/addr_inp_txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/location_txt"
-        android:layout_toRightOf="@+id/get_gps_btn"
         android:layout_margin="10dp"
-        android:hint="주소"/>
+        android:hint="예 : 대전시 유성구 궁동"/>
 
-    <Button
-        android:id="@+id/get_gps_btn"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@+id/location_txt"/>
-<!--        android:background="@drawable/ic_location_searching_24px"-->
-<!--        style="?android:attr/borderlessButtonStyle"/>-->
+<!--    <Button-->
+<!--        android:id="@+id/get_gps_btn"-->
+<!--        android:layout_width="30dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_below="@+id/location_txt"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginTop="15dp" />-->
 
-    <EditText
-        android:id="@+id/detail_addr_txt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/get_gps_btn"
-        android:layout_margin="10dp"
-        android:hint="자세한 주소"/>
+<!--    <EditText-->
+<!--        android:id="@+id/detail_addr_txt"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/addr_txt"-->
+<!--        android:layout_margin="10dp"-->
+<!--        android:hint="자세한 주소"/>-->
 
     <TextView
         android:id="@+id/contect_info_txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/detail_addr_txt"
-        android:text="연락 할 수단"
+        android:layout_below="@+id/addr_inp_txt"
+        android:text="날짜"
         android:textSize="20sp"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"/>
 
     <EditText
-        android:id="@+id/phone_num_txt"
+        android:id="@+id/date_inp_txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="전화번호"
+        android:hint="0/00~0/00"
         android:layout_below="@id/contect_info_txt"
         android:layout_margin="10dp" />
 
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date_inp_txt"
+        android:text="원하는 가격"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"/>
+
+    <EditText
+        android:id="@+id/price_inp_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="천원"
+        android:layout_below="@id/price"
+        android:layout_margin="10dp" />
+
     <Button
+        android:id="@+id/next_btn2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Next"
         android:textSize="30sp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/blue3"/>
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/price_inp_txt"
+        android:background="@color/purple1"/>
 
 </RelativeLayout>
+
+</ScrollView>
