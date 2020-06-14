@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         editTextEmail = (EditText) findViewById(R.id.editText_email);
         editTextPassword = (EditText) findViewById(R.id.editText_passWord);
-        editTextName = (EditText) findViewById(R.id.editText_name);
+        editTextName = (EditText) findViewById(R.id.et_name);
 
         buttonJoin = (Button) findViewById(R.id.btn_join);
         buttonJoin.setOnClickListener(new View.OnClickListener() {
