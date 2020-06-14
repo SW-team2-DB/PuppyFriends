@@ -8,12 +8,10 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import org.w3c.dom.Text;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class Rating extends AppCompatActivity {
 
