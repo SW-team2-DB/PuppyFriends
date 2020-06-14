@@ -129,7 +129,7 @@ public class SitterApplicationActivity extends Activity {
 
                     // DB에 '.'이 안들어감 메일이 xxx@gmail.com 이면 xxx@gmail만 넣도록 일단은 해놓음
                     // 메일을 보여줄 때는 전체를 보여줘야하므로 .com을 추가함
-                    result = "id : " + get.id;
+                    result = "mail : " + get.id + ".com";
 
                     // 확인용
                     Log.d("getFirebaseDatabase", "key: " + key);
@@ -179,9 +179,12 @@ public class SitterApplicationActivity extends Activity {
                 // 바로 위의 mail 정보를 가지고 있는 text view 가져옴
                 TextView t = findViewById(btn.getId()-1);
                 String seletedId = t.getText().toString();
-                Log.d("clicked : ", seletedId);
+                // mail : xxx@gmail.com -> 이런 형식으로 만들었으므로 split해서 2번째 요소만 가져옴
+                // 참고로 db에 '.'이 안들어가서 .com을 빼고 집어넣을 것, 공백과 '.'을 기준으로 나눔
+                String[] splitedId = seletedId.split(" |\\.");
+                Log.d("clicked : ", splitedId[2]);
                 // db에 넣어줄 것임
-                postFirebaseDB(seletedId);
+                postFirebaseDB(splitedId[2]);
             }
         });
 
