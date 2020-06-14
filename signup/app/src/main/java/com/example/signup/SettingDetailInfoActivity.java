@@ -94,6 +94,7 @@ public class SettingDetailInfoActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(SettingDetailInfoActivity.this, UserApplicationActivity.class);
                     intent.putExtra("id", id);
+                    Toast.makeText(SettingDetailInfoActivity.this, id, Toast.LENGTH_SHORT).show();
                     startActivity(intent);
                 }
 
