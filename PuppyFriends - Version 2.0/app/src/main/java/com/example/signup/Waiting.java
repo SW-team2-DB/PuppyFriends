@@ -1,4 +1,4 @@
-package com.example.signup;
+﻿package com.example.signup;
 
 import android.content.Intent;
 import android.os.Bundle;

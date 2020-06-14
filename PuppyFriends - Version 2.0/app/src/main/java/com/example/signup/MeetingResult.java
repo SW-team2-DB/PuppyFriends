@@ -1,7 +1,8 @@
-package com.example.signup;
+﻿package com.example.signup;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,7 +22,7 @@ public class MeetingResult extends AppCompatActivity {
     private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference mReference =  mDatabase.getReference();
 
-    private TextView meetingresultownerid, meetingresultsitterid, meetingresult1, meetingresult2, meetingresult3, meetingresult4, meetingresult5, meetingresult6, meetingresult7, meetingresult8, meetingresult9;
+    private TextView meetingresultownerid, meetingresultsitterid, meetingresult1, meetingresult2, meetingresult3, meetingresult4, meetingresult5, meetingresult6, meetingresult7, meetingresult8, meetingresult9, meetingresult10;
 
     private String matching_id;
     private String owner_id;
@@ -30,6 +31,9 @@ public class MeetingResult extends AppCompatActivity {
     private Button agree;
 
     private Boolean isSitter = false;
+
+    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +60,7 @@ public class MeetingResult extends AppCompatActivity {
         meetingresult7 = (TextView)findViewById(R.id.meetingresult7);
         meetingresult8 = (TextView)findViewById(R.id.meetingresult8);
         meetingresult9 = (TextView)findViewById(R.id.meetingresult9);
+        meetingresult10 = (TextView)findViewById(R.id.meetingresult10);
 
         agree = (Button)findViewById(R.id.result_agree_btn);
         agree.setOnClickListener(new View.OnClickListener(){
@@ -71,6 +76,7 @@ public class MeetingResult extends AppCompatActivity {
                     intent.putExtra("sitter_id", sitter_id);
                     intent.putExtra("usertype", "owner");
                     startActivity(intent);
+                    finish();
                 }
                 else if(isSitter){
                     //펫시터라면 돌봄 진행중 화면으로
@@ -80,7 +86,9 @@ public class MeetingResult extends AppCompatActivity {
                     intent.putExtra("usertype", "sitter");
                     intent.putExtra("owner_id", owner_id);
                     intent.putExtra("sitter_id", sitter_id);
+                    intent.putExtra("돌봄시간", (Parcelable) meetingresult10);
                     startActivity(intent);
+                    finish();
                 }
 
             }
@@ -102,6 +110,7 @@ public class MeetingResult extends AppCompatActivity {
         String meeting7 = "특이사항";
         String meeting8 = "etc";
         String meeting9 = "가격";
+        String meeting10 = "돌봄시간";
 
         //날짜
         mReference.child(root1).child(root2).child("사전만남").child(meeting1).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -214,6 +223,18 @@ public class MeetingResult extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 meetingresult9.setText(dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        mReference.child(root1).child(root2).child("돌봄시간").child(meeting10).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                meetingresult10.setText(dataSnapshot.getValue().toString());
             }
 
             @Override
