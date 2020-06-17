@@ -5,14 +5,18 @@ public class Userinformation {
     public String name;
     public String address;
     public String phoneno;
+    public String gender;
+    public String loc;
 
     public Userinformation(){
     }
 
-    public Userinformation(String name,String surname, String phoneno){
+    public Userinformation(String name,String surname, String phoneno, String gender,String loc){
         this.name = name;
         this.address = surname;
         this.phoneno = phoneno;
+        this.gender = gender;
+        this.loc = loc;
     }
     public String getUserName() {
         return name;
@@ -23,4 +27,6 @@ public class Userinformation {
     public String getUserPhoneno() {
         return phoneno;
     }
+    public String getUserGender(){return gender;}
+    public String getUserLoc(){return loc;}
 }

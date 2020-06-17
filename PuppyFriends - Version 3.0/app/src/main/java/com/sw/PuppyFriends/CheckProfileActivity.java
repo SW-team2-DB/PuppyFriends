@@ -26,7 +26,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class CheckProfileActivity extends AppCompatActivity {
 
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-    private TextView profileNameTextView, profileAddressTextView, profilePhonenoTextView;
+    private TextView profileNameTextView, profileAddressTextView, profilePhonenoTextView,user_gender,user_loc;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     private ImageView profilePicImageView;
@@ -60,6 +60,10 @@ public class CheckProfileActivity extends AppCompatActivity {
         profileNameTextView = findViewById(R.id.profile_name_textView_some);
         profileAddressTextView = findViewById(R.id.profile_address_textView_some);
         profilePhonenoTextView = findViewById(R.id.profile_phoneno_textView_some);
+
+        user_gender = findViewById(R.id.user_gender);
+        user_loc = findViewById(R.id.user_loc);
+
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseStorage = FirebaseStorage.getInstance();
@@ -79,6 +83,8 @@ public class CheckProfileActivity extends AppCompatActivity {
                 profileNameTextView.setText(dataSnapshot.child("name").getValue().toString());
                 profileAddressTextView.setText(dataSnapshot.child("address").getValue().toString());
                 profilePhonenoTextView.setText(dataSnapshot.child("phoneno").getValue().toString());
+                user_gender.setText(dataSnapshot.child("gender").getValue().toString());
+                user_loc.setText(dataSnapshot.child("loc").getValue().toString());
             }
             @Override
             public void onCancelled( DatabaseError databaseError) {

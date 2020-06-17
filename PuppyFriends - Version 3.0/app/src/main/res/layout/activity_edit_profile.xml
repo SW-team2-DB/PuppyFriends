@@ -78,13 +78,49 @@
                 android:layout_marginBottom="10dp"
                 android:textColor="@color/colorPrimaryDark"/>
 
+            <RadioGroup
+                android:id="@+id/radioGroup2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RadioButton
+                    android:id="@+id/radioButton1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="대덕구" />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="유성구" />
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="동구" />
+
+                <RadioButton
+                    android:id="@+id/radioButton4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="서구" />
+
+                <RadioButton
+                    android:id="@+id/radioButton5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="중구" />
+            </RadioGroup>
+
             <EditText
                 android:id="@+id/EditTextAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:ems="10"
-                android:hint="@string/enter_your_address"
+                android:hint="상세주소를 입력하세요"
                 android:inputType="textPersonName|textCapSentences" />
             <TextView
                 android:id="@+id/TextViewPhoneNo"
@@ -103,6 +139,43 @@
                 android:ems="10"
                 android:hint="@string/enter_your_phone_number"
                 android:inputType="number" />
+            <TextView
+                android:id="@+id/TextViewOlder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="성별:"
+                android:textSize="20dp"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/colorPrimaryDark"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <RadioButton
+                        android:id="@+id/radioButtonMale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="남자" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonFemale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="여성" />
+                </RadioGroup>
+
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/TextViewEmail"
                 android:layout_width="match_parent"

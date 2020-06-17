@@ -133,7 +133,7 @@ public class Login extends AppCompatActivity {
         pd.setMessage("Loading...");
         pd.show();
 
-        Intent inent = new Intent(this, Register.class);
+        Intent inent = new Intent(this, tos.class);
         startActivity(inent);
     }
     public void NavigateForgetMyPassword(View v) {

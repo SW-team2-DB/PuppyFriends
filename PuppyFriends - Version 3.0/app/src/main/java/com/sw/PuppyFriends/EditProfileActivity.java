@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +36,10 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     private static final String TAG = EditProfileActivity.class.getSimpleName();
     Button btnsave;
     String id;
+    String gender1,loc1;
+
+    RadioGroup radioGroup, radioGroup2;
+
     private FirebaseAuth firebaseAuth;
     private TextView textViewemailname;
     private DatabaseReference databaseReference;
@@ -74,6 +80,10 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         editTextAddress = (EditText)findViewById(R.id.EditTextAddress);
         editTextPhoneNo = (EditText)findViewById(R.id.EditTextPhoneNo);
         btnsave=(Button)findViewById(R.id.btnSaveButton);
+
+        radioGroup = findViewById(R.id.radioGroup);//성별 라디오 그룹
+        radioGroup2 = findViewById(R.id.radioGroup2);//지역 라디오 그룹
+
         FirebaseUser user=firebaseAuth.getCurrentUser();
         btnsave.setOnClickListener(this);
         textViewemailname=(TextView)findViewById(R.id.textViewEmailAdress);
@@ -82,6 +92,46 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         firebaseStorage = FirebaseStorage.getInstance();
         storageReference = firebaseStorage.getReference();
 
+        //성별 추가하는 부분
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId){
+                    case R.id.radioButtonMale:
+                        gender1 = "남자";
+                        break;
+                    case R.id.radioButtonFemale:
+                        gender1 = "여자";
+                        break;
+                }
+            }
+        });
+
+        //지역 라디오 부분
+        radioGroup2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId){
+                    case R.id.radioButton1:
+                        loc1 = "대덕구";
+                        break;
+                    case R.id.radioButton2:
+                        loc1 = "유성구";
+                        break;
+                    case R.id.radioButton3:
+                        loc1 = "동구";
+                        break;
+                    case R.id.radioButton4:
+                        loc1 = "서구";
+                        break;
+                    case R.id.radioButton5:
+                        loc1 = "중구";
+                        break;
+                }
+            }
+        });
+
+        //프로필 이미지 넣는 부분
         profileImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,7 +147,9 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         String name = editTextName.getText().toString().trim();
         String address = editTextAddress.getText().toString().trim();
         String phoneno = editTextPhoneNo.getText().toString().trim();
-        Userinformation userinformation = new Userinformation(name,address,phoneno);
+        String gender = gender1;
+        String loc=loc1;
+        Userinformation userinformation = new Userinformation(name,address,phoneno,gender,loc);
         FirebaseUser user = firebaseAuth.getCurrentUser();
         databaseReference.child("users").child(username).child("Info").setValue(userinformation);
         databaseReference.child(user.getUid()).setValue(userinformation);
