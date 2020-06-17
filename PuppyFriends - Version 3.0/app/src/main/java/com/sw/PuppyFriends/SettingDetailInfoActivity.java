@@ -2,20 +2,26 @@ package com.sw.PuppyFriends;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,7 +30,7 @@ import java.util.Map;
 public class SettingDetailInfoActivity extends AppCompatActivity {
 
     private DatabaseReference mPostReference;
-//    DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
 //    DatabaseReference conditionRef = mRootRef.child("sitting_application_info");
 
     Button nextBtn;
@@ -46,9 +52,14 @@ public class SettingDetailInfoActivity extends AppCompatActivity {
     String id;
     String gender;
     String loc;
-    String date;
+//    String date;
 
     TextView dateTxt;
+
+
+    String date, desired_price, dog_age, dog_breed, dog_name, location, user_age, user_gender, user_name;
+    int month =1;
+    int day =1;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,6 +71,9 @@ public class SettingDetailInfoActivity extends AppCompatActivity {
 
         id = intent.getExtras().getString("id");
         Toast.makeText(SettingDetailInfoActivity.this, "ID : " + id, Toast.LENGTH_SHORT).show();
+
+
+
 
         nextBtn = findViewById(R.id.next_btn2);
         dogNameTxt = findViewById(R.id.dog_name_inp_txt);
@@ -73,17 +87,229 @@ public class SettingDetailInfoActivity extends AppCompatActivity {
         locRadioGroup = findViewById(R.id.loc_radio_btn_group);
         dataPicker = findViewById(R.id.dataPicker);
 
-        dataPicker.init(2020, 1, 1, new DatePicker.OnDateChangedListener() {
-            @Override
-            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                date = monthOfYear + "/" + dayOfMonth;
-                Toast.makeText(SettingDetailInfoActivity.this, date, Toast.LENGTH_SHORT).show();
-            }
-        });
-
         priceTxt = findViewById(R.id.price_inp_txt);
 
         dateTxt = findViewById(R.id.contect_info_txt);
+
+        //설정한 값 받아오기
+        mRootRef.child("sitting_detail_info").child(id).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    if(dataSnapshot.child("desired_price").exists()){
+                        if(dataSnapshot.child("date").exists()){
+                            date = dataSnapshot.child("date").getValue().toString();
+                        } else date = "";
+
+                        if(dataSnapshot.child("desired_price").exists()){
+                            desired_price = dataSnapshot.child("desired_price").getValue().toString();
+                        } else desired_price = "";
+
+                        if(dataSnapshot.child("dog_age").exists()){
+                            dog_age = dataSnapshot.child("dog_age").getValue().toString();
+                        } else dog_age = "";
+
+                        if(dataSnapshot.child("dog_breed").exists()){
+                            dog_breed = dataSnapshot.child("dog_breed").getValue().toString();
+                        } else dog_breed = "";
+
+                        if(dataSnapshot.child("dog_name").exists()){
+                            dog_name = dataSnapshot.child("dog_name").getValue().toString();
+                        } else dog_name = "";
+
+                        if(dataSnapshot.child("location").exists()){
+                            location = dataSnapshot.child("location").getValue().toString();
+                        } else location = "";
+
+                        if(dataSnapshot.child("user_age").exists()){
+                            user_age = dataSnapshot.child("user_age").getValue().toString();
+                        } else user_age = "";
+
+                        if(dataSnapshot.child("user_gender").exists()){
+                            user_gender = dataSnapshot.child("user_gender").getValue().toString();
+                        } else user_gender = "";
+
+                        if(dataSnapshot.child("user_name").exists()){
+                            user_name = dataSnapshot.child("user_name").getValue().toString();
+                        } else user_name = "";
+
+
+                        //////////////////////////////////////////
+
+
+                        //설정한 값 있으면 적용하기
+                        if(!date.isEmpty()){
+                            String date_split[] = date.split("/");
+                            int month = Integer.parseInt(date_split[0]);
+                            int day = Integer.parseInt(date_split[1]);
+                            setMD(month, day);
+                            dataPicker.init(2020, month, day, new DatePicker.OnDateChangedListener() {
+                                @Override
+                                public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                                    date = monthOfYear + "/" + dayOfMonth;
+                                }
+                            });
+                        }
+                        else {
+                            setMD(1,1);
+
+                        }
+
+                        if(!desired_price.isEmpty()){
+                            priceTxt.setText(desired_price);
+                        }
+
+                        if(!dog_age.isEmpty()){
+                            dogAgeTxt.setText(dog_age);
+
+                        }
+
+                        if(!dog_breed.isEmpty()){
+                            dogBreedTxt.setText(dog_breed);
+                        }
+
+                        if(!dog_name.isEmpty()){
+                            dogNameTxt.setText(dog_name);
+
+                        }
+
+                        if(!location.isEmpty()){
+                            if(location.equals("대덕구")){
+                                ((RadioButton)locRadioGroup.getChildAt(0)).setChecked(true);
+                            }
+                            else if(location.equals("유성구")){
+                                ((RadioButton)locRadioGroup.getChildAt(1)).setChecked(true);
+                            }
+                            else if(location.equals("동구")){
+                                ((RadioButton)locRadioGroup.getChildAt(2)).setChecked(true);
+                            }
+                            else if(location.equals("서구")){
+                                ((RadioButton)locRadioGroup.getChildAt(3)).setChecked(true);
+                            }
+                            else if(location.equals("중구")){
+                                ((RadioButton)locRadioGroup.getChildAt(4)).setChecked(true);
+                            }
+
+                        }
+
+                        if(!user_age.isEmpty()){
+                            userAgeTxt.setText(user_age);
+                        }
+
+                        if(!user_gender.isEmpty()){
+                            if(user_gender.equals("male")){
+                                ((RadioButton)radioGroup.getChildAt(0)).setChecked(true);
+                            }
+                            else if(user_gender.equals("female")){
+                                ((RadioButton)radioGroup.getChildAt(1)).setChecked(true);
+                            }
+                        }
+
+                        if(!user_name.isEmpty()){
+                            userNameTxt.setText(user_name);
+                        }
+                    }
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+//        //설정한 값 있으면 적용하기
+//        if(!date.isEmpty()){
+//            String date_split[] = date.split("/");
+//            int month = Integer.parseInt(date_split[0]);
+//            int day = Integer.parseInt(date_split[1]);
+//            dataPicker.init(2020, month, day, new DatePicker.OnDateChangedListener() {
+//                @Override
+//                public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+//                    date = monthOfYear + "/" + dayOfMonth;
+//                }
+//            });
+//        }
+//        else {
+//            dataPicker.init(2020, 1, 1, new DatePicker.OnDateChangedListener() {
+//                @Override
+//                public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+//                    date = monthOfYear + "/" + dayOfMonth;
+//                }
+//            });
+//        }
+//
+//        if(!desired_price.isEmpty()){
+//            priceTxt.setText(desired_price);
+//        }
+//
+//        if(!dog_age.isEmpty()){
+//            dogAgeTxt.setText(dog_age);
+//
+//        }
+//
+//        if(!dog_breed.isEmpty()){
+//            dogBreedTxt.setText(dog_breed);
+//        }
+//
+//        if(!dog_name.isEmpty()){
+//            dogNameTxt.setText(dog_name);
+//
+//        }
+//
+//        if(!location.isEmpty()){
+//            if(location.equals("대덕구")){
+//                ((RadioButton)locRadioGroup.getChildAt(0)).setChecked(true);
+//            }
+//            else if(location.equals("유성구")){
+//                ((RadioButton)locRadioGroup.getChildAt(1)).setChecked(true);
+//            }
+//            else if(location.equals("동구")){
+//                ((RadioButton)locRadioGroup.getChildAt(2)).setChecked(true);
+//            }
+//            else if(location.equals("서구")){
+//                ((RadioButton)locRadioGroup.getChildAt(3)).setChecked(true);
+//            }
+//            else if(location.equals("중구")){
+//                ((RadioButton)locRadioGroup.getChildAt(4)).setChecked(true);
+//            }
+//
+//        }
+//
+//        if(!user_age.isEmpty()){
+//            userAgeTxt.setText(user_age);
+//        }
+//
+//        if(!user_gender.isEmpty()){
+//            userAgeTxt.setText(user_age);
+//        }
+//
+//        if(!user_name.isEmpty()){
+//            userNameTxt.setText(user_name);
+//        }
+
+
+
+
+//        dataPicker.init(2020, 1, 1, new DatePicker.OnDateChangedListener() {
+//            @Override
+//            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+//                date = monthOfYear + "/" + dayOfMonth;
+//                Toast.makeText(SettingDetailInfoActivity.this, date, Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
+
+        dataPicker.init(2020, month, day, new DatePicker.OnDateChangedListener() {
+            @Override
+            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                date = monthOfYear + "/" + dayOfMonth;
+            }
+        });
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -165,6 +391,11 @@ public class SettingDetailInfoActivity extends AppCompatActivity {
         postValue = post.toMap();
         childUpdates.put("/sitting_detail_info/" + mId , postValue);
         mPostReference.updateChildren(childUpdates);
+    }
+
+    private void setMD(int m, int d){
+        month = m;
+        day = d;
     }
 
 }

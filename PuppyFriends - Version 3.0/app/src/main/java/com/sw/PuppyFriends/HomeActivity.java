@@ -82,7 +82,6 @@ public class HomeActivity extends AppCompatActivity {
                         if(!dataSnapshot.exists()){ //없을 때 입력받기
                             Intent intent = new Intent(getApplicationContext(), SettingDetailInfoActivity.class);
                             intent.putExtra("id", id);
-
                             startActivity(intent);
                         }else{ //있을 때 건너뛰기
                             Intent intent = new Intent(getApplicationContext(), UserApplicationActivity.class);
@@ -140,7 +139,6 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent guide = new Intent(getApplicationContext(), Usingguide.class);
-                guide.putExtra("id",id);
                 startActivity(guide);
                 finish();
             }

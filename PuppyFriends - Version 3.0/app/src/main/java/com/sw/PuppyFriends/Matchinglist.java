@@ -136,7 +136,13 @@ public class Matchinglist extends AppCompatActivity {
         TextView textView = new TextView(this);
 
         // text view 속성
-        textView.setText(yi+" ("+status+")");
+        if(status.equals("견주취소")||status.equals("펫시터취소")){
+            textView.setText(yi+" (취소)");
+        }
+        else{
+            textView.setText(yi+" ("+status+")");
+        }
+
         textView.setTextSize(20);
         textView.setGravity(Gravity.CENTER);
         textView.setId(cnt++);
@@ -190,6 +196,8 @@ public class Matchinglist extends AppCompatActivity {
 
         if(st.equals("진행중")) a = "선택";
         else if(st.equals("종료")) a = "돌봄일지 확인";
+        else if(st.equals("펫시터취소")) a = "펫시터가 매칭을 취소하였습니다";
+        else if(st.equals("견주취소")) a = "견주가 매칭을 취소하였습니다";
 
         btn.setText(a);
         btn.setGravity(Gravity.CENTER);
@@ -197,67 +205,72 @@ public class Matchinglist extends AppCompatActivity {
         btn.setId(cnt++);
         btn.setBackgroundColor(getResources().getColor(R.color.purple1));
 
+        if(a.equals("선택") || a.equals("돌봄일지 확인")){
+            btn.setOnClickListener(new View.OnClickListener() {
+                @SuppressLint("ResourceType")
+                @Override
+                public void onClick(View v) {
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("ResourceType")
-            @Override
-            public void onClick(View v) {
+                    pathReference.child(mk).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            owner_id = dataSnapshot.child("owner_id").getValue().toString();
+                            sitter_id = dataSnapshot.child("sitter_id").getValue().toString();
+                            if(id.equals(owner_id)) usertype = "owner";
+                            else if(id.equals(sitter_id)) usertype = "sitter";
 
-                pathReference.child(mk).addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        owner_id = dataSnapshot.child("owner_id").getValue().toString();
-                        sitter_id = dataSnapshot.child("sitter_id").getValue().toString();
-                        if(id.equals(owner_id)) usertype = "owner";
-                        else if(id.equals(sitter_id)) usertype = "sitter";
+                            //status 구분
+                            if(dataSnapshot.child("status").exists() && dataSnapshot.child("status").child(usertype).getValue().toString().equals("진행중")) status = "진행중";
+                            else if(dataSnapshot.child("status").exists() && dataSnapshot.child("status").child(usertype).getValue().toString().equals("종료")) status = "종료";
 
-                        //status 구분
-                        if(dataSnapshot.child("status").exists() && dataSnapshot.child("status").child(usertype).getValue().toString().equals("진행중")) status = "진행중";
-                        else if(dataSnapshot.child("status").exists() && dataSnapshot.child("status").child(usertype).getValue().toString().equals("종료")) status = "종료";
+                        }
 
-                    }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        }
+                    });
 
-                    }
-                });
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
 
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-
-                        if(status.equals("진행중")){
-                            Intent intent = new Intent(getApplication(), Waiting.class);
-                            intent.putExtra("owner_id", owner_id);
-                            intent.putExtra("sitter_id", sitter_id);
-                            intent.putExtra("matching_id", mk);
-                            intent.putExtra("usertype", usertype);
-                            startActivity(intent);
-                        } else if(status.equals("종료")){
-                            if(mr){ //돌봄일지 있으면
-                                Intent intent = new Intent(getApplication(), matchreportResult.class);
+                            if(status.equals("진행중")){
+                                Intent intent = new Intent(getApplication(), Waiting.class);
                                 intent.putExtra("owner_id", owner_id);
                                 intent.putExtra("sitter_id", sitter_id);
                                 intent.putExtra("matching_id", mk);
                                 intent.putExtra("usertype", usertype);
                                 startActivity(intent);
-                            } else { //작성 없으면
-                                Toast.makeText(getApplicationContext(), "펫시터가 돌봄일지를 작성하지 않았습니다", Toast.LENGTH_LONG).show();
-                            }
+                            } else if(status.equals("종료")){
+                                if(mr){ //돌봄일지 있으면
+                                    Intent intent = new Intent(getApplication(), matchreportResult.class);
+                                    intent.putExtra("owner_id", owner_id);
+                                    intent.putExtra("sitter_id", sitter_id);
+                                    intent.putExtra("matching_id", mk);
+                                    intent.putExtra("usertype", usertype);
+                                    startActivity(intent);
+                                } else { //작성 없으면
+                                    Toast.makeText(getApplicationContext(), "펫시터가 돌봄일지를 작성하지 않았습니다", Toast.LENGTH_LONG).show();
+                                }
 
 
 
 
 //                            Toast.makeText(getApplicationContext(), mk+"는 종료되었습니다.", Toast.LENGTH_SHORT).show();
+                            }
+
+
+
                         }
+                    }, 500);
+                }
+            });
+        }
+        else btn.setClickable(false);
 
 
 
-                    }
-                }, 500);
-            }
-        });
 
         linearLayout.addView(btn);
     }

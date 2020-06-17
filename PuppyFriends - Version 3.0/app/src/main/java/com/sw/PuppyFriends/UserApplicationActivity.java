@@ -7,7 +7,9 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,6 +43,11 @@ public class UserApplicationActivity extends AppCompatActivity {
     static int cnt = 0;
 
     String matching_id = null;
+
+
+    String date, desired_price, dog_age, dog_breed, dog_name, location, user_age, user_gender, user_name;
+
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -141,6 +148,7 @@ public class UserApplicationActivity extends AppCompatActivity {
                     Log.d("getFirebaseDatabase", "info: " + result);
 
 
+
                     ////////////////////////////
                     if(postSnapshot.child("application_id").exists()) {
                         ///////////////////////////
@@ -154,14 +162,66 @@ public class UserApplicationActivity extends AppCompatActivity {
                         addButtonLayout();
                     }
 
+
                         ///////////////////////
                     }
                     ///////////////////////
 
                 }
-                if(linearLayout.getChildCount()==0){
+                if(linearLayout.getChildCount()==0) {
                     //자신을 선택한 펫시터가 없으면
                     noApplication();
+                }
+                else{
+                    //신청한 펫시터 있어도 조건 변경 버튼 추가
+                    Button cancel = newButton();
+                    cancel.setText("조건 변경");
+                    cancel.setGravity(Gravity.CENTER);
+                    cancel.setTextSize(20);
+                    cancel.setBackgroundColor(getResources().getColor(R.color.purple1));
+                    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    params.setMargins(0,100,0,0);
+                    cancel.setLayoutParams(params);
+                    cancel.setOnClickListener(new View.OnClickListener() {
+                        @SuppressLint("ResourceType")
+                        @Override
+                        public void onClick(View v) {
+
+                            //신청했던 펫시터의 신청정보 삭제
+                            mRootRef.child("sitting_application_info").addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+                                        if(postSnapshot.child("application_id").exists()){
+                                            if(postSnapshot.child("application_id").getValue().toString().equals(id)){
+                                                mRootRef.child("sitting_application_info").push().child("application_id").setValue("견주의 조건 변경으로 인한 취소");
+                                                for(DataSnapshot postpostSnapshot : postSnapshot.getChildren()){
+                                                    postSnapshot.getRef().removeValue();
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+
+
+
+                            Intent intent = new Intent(getApplicationContext(), SettingDetailInfoActivity.class);
+                            intent.putExtra("id", id);
+
+
+                            startActivity(intent);
+                            finish();
+
+                        }
+                    });
+                    linearLayout.addView(cancel);
                 }
             }
 
@@ -171,6 +231,9 @@ public class UserApplicationActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
 
     private void noApplication(){ //자신을 선택한 펫시터가 없을 때
         title.setText("아직 지원한 펫시터가 없습니다");
@@ -182,12 +245,72 @@ public class UserApplicationActivity extends AppCompatActivity {
         btn.setTextSize(20);
         btn.setBackgroundColor(getResources().getColor(R.color.purple1));
 
+        // 이전에 설정한 값 받아오기
+        mRootRef.child("sitting_detail_info").child(id).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.child("date").exists()){
+                    date = dataSnapshot.child("date").getValue().toString();
+                } else date = "";
+
+                if(dataSnapshot.child("desired_price").exists()){
+                    desired_price = dataSnapshot.child("desired_price").getValue().toString();
+                } else desired_price = "";
+
+                if(dataSnapshot.child("dog_age").exists()){
+                    dog_age = dataSnapshot.child("dog_age").getValue().toString();
+                } else dog_age = "";
+
+                if(dataSnapshot.child("dog_breed").exists()){
+                    dog_breed = dataSnapshot.child("dog_breed").getValue().toString();
+                } else dog_breed = "";
+
+                if(dataSnapshot.child("dog_name").exists()){
+                    dog_name = dataSnapshot.child("dog_name").getValue().toString();
+                } else dog_name = "";
+
+                if(dataSnapshot.child("location").exists()){
+                    location = dataSnapshot.child("location").getValue().toString();
+                } else location = "";
+
+                if(dataSnapshot.child("user_age").exists()){
+                    user_age = dataSnapshot.child("user_age").getValue().toString();
+                } else user_age = "";
+
+                if(dataSnapshot.child("user_gender").exists()){
+                    user_gender = dataSnapshot.child("user_gender").getValue().toString();
+                } else user_gender = "";
+
+                if(dataSnapshot.child("user_name").exists()){
+                    user_name = dataSnapshot.child("user_name").getValue().toString();
+                } else user_name = "";
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         btn.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceType")
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), SettingDetailInfoActivity.class);
                 intent.putExtra("id", id);
+
+                //이전에 입력한 값 인텐트 보내기
+                intent.putExtra("date", date);
+                intent.putExtra("desired_price", desired_price);
+                intent.putExtra("dog_age", dog_age);
+                intent.putExtra("dog_breed", dog_breed);
+                intent.putExtra("dog_name", dog_name);
+                intent.putExtra("location", location);
+                intent.putExtra("user_age", user_age);
+                intent.putExtra("user_gender", user_gender);
+                intent.putExtra("user_name", user_name);
+
                 startActivity(intent);
             }
         });
@@ -231,12 +354,14 @@ public class UserApplicationActivity extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
+
 //////////////////////////////////////////// 사전만남 입력하면 튕기는거 해결
                         mRootRef.child("matching").child(matching_id).child("owner_id").setValue("");
                         mRootRef.child("matching").child(matching_id).child("sitter_id").setValue("");
                         mRootRef.child("matching").child(matching_id).child("status").child("owner").setValue("");
                         mRootRef.child("matching").child(matching_id).child("status").child("sitter").setValue("");
 ////////////////////////////////////////////
+
                         Intent intent = new Intent(UserApplicationActivity.this, Meetingbefore_agree.class);
                         intent.putExtra("owner_id", id);
                         intent.putExtra("sitter_id", seletedId);
@@ -301,6 +426,11 @@ public class UserApplicationActivity extends AppCompatActivity {
         });
 
         linearLayout.addView(btn);
+    }
+
+    private Button newButton(){
+        Button b = new Button(this);
+        return b;
     }
 
 
