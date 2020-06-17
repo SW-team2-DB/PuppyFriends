@@ -38,7 +38,6 @@ public class DetailConditionCheck extends Activity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // application_status 공유해서 사용함
         setContentView(R.layout.detail_condition_check);
 
         Intent intent = getIntent();
