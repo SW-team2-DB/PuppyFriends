@@ -1,4 +1,4 @@
-package com.example.signup;
+﻿package com.example.signup;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -32,7 +32,7 @@ public class Meeting extends AppCompatActivity {
 
     TextView meetingownerid, meetingsitterid;
 
-    EditText application_date, meetingguide1, meetingguide2, meetingguide3, meetingguide4, meetingguide5, meetingguide6;
+    EditText application_date, meetingguide1, meetingguide2, meetingguide3, meetingguide4, meetingguide5, meetingguide6, meetingguide7;
 
 
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
@@ -87,6 +87,7 @@ public class Meeting extends AppCompatActivity {
         meetingguide4 = (EditText)findViewById(R.id.meetingguide4);
         meetingguide5 = (EditText)findViewById(R.id.meetingguide5);
         meetingguide6 = (EditText)findViewById(R.id.meetingguide6);
+        meetingguide7 = (EditText)findViewById(R.id.meetingguide7);
 
         complete.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -99,6 +100,7 @@ public class Meeting extends AppCompatActivity {
                 final String detail4 = meetingguide4.getText().toString();
                 final String detail5 = meetingguide5.getText().toString();
                 final String detail6 = meetingguide6.getText().toString();
+                final String detail7 = meetingguide7.getText().toString();
                 final String etc = meeting_edit.getText().toString();
                 final String fee = feeEdit.getText().toString();
 
@@ -117,6 +119,7 @@ public class Meeting extends AppCompatActivity {
                     databaseReference.child("matching").child(matching_id).child("사전만남").child("산책시간").setValue(detail4);
                     databaseReference.child("matching").child(matching_id).child("사전만남").child("산책상세").setValue(detail5);
                     databaseReference.child("matching").child(matching_id).child("사전만남").child("특이사항").setValue(detail6);
+                    databaseReference.child("matching").child(matching_id).child("사전만남").child("돌봄시간").setValue(detail7);
                     databaseReference.child("matching").child(matching_id).child("사전만남").child("etc").setValue(etc);
                     databaseReference.child("matching").child(matching_id).child("사전만남").child("가격").setValue(fee);
 
@@ -126,11 +129,15 @@ public class Meeting extends AppCompatActivity {
                     databaseReference.child("matching").child(matching_id).child("사전만남").child("owner_agree").setValue("not yet");
                     databaseReference.child("matching").child(matching_id).child("사전만남").child("sitter_agree").setValue("not yet");
 
+                    databaseReference.child("matching").child(matching_id).child("status").child("owner").setValue("진행중");
+                    databaseReference.child("matching").child(matching_id).child("status").child("sitter").setValue("진행중");
+
                     Intent intent = new Intent(getApplicationContext(), MeetingResult.class);
                     intent.putExtra("owner_id", owner_id);
                     intent.putExtra("sitter_id", sitter_id);
                     intent.putExtra("matching_id", matching_id);
                     startActivity(intent);
+                    finish();
                 }
             }
         });

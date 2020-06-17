@@ -139,6 +139,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent guide = new Intent(getApplicationContext(), Usingguide.class);
+                guide.putExtra("id",id);
                 startActivity(guide);
                 finish();
             }

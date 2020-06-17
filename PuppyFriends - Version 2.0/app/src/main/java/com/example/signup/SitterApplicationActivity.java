@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -115,6 +116,8 @@ public class SitterApplicationActivity extends Activity {
         conditionRef.addValueEventListener(new ValueEventListener() {
             String result;
 
+            TextView title = (TextView)findViewById(R.id.applistatustitletext);
+
             @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -129,7 +132,7 @@ public class SitterApplicationActivity extends Activity {
 
                     // DB에 '.'이 안들어감 메일이 xxx@gmail.com 이면 xxx@gmail만 넣도록 일단은 해놓음
                     // 메일을 보여줄 때는 전체를 보여줘야하므로 .com을 추가함
-                    result = "mail : " + get.id + ".com";
+                    result = "id : " + get.id;
 
                     // 확인용
                     Log.d("getFirebaseDatabase", "key: " + key);
@@ -148,6 +151,11 @@ public class SitterApplicationActivity extends Activity {
                             && (Integer.parseInt(get.desired_price) <= Integer.parseInt(price2)) && (Math.abs(differ) <= dateSelection*5)){
                         addTextViewLayout(result);
                         addButtonLayout();
+                        title.setText("신청 정보");
+                    }
+                    else{
+                        //조건에 맞는 견주가 없을 때
+                        title.setText("조건에 맞는 견주가 없습니다");
                     }
                 }
             }
@@ -161,34 +169,50 @@ public class SitterApplicationActivity extends Activity {
 
     // 동적으로 버튼 추가하는 함수
     private void addButtonLayout(){
-        final Button btn = new Button(this);
+        final Button btn1 = new Button(this);
+        final Button btn2 = new Button(this);
 
         // 버튼 속성
-        btn.setText("선택");
-        btn.setGravity(Gravity.CENTER);
-        btn.setTextSize(20);
+        btn1.setText("선택");
+        btn1.setGravity(Gravity.CENTER);
+        btn1.setTextSize(15);
+
+        btn2.setText("프로필 확인하기");
+        btn2.setGravity(Gravity.CENTER);
+        btn2.setTextSize(15);
+
         // 동적으로 아이디 설정, 숫자임
         // text view를 먼저 넣고 버튼을 넣어서 text view 아이디가 0이면 버튼 아이디는 1임
-        btn.setId(cnt++);
-        btn.setBackgroundColor(getResources().getColor(R.color.purple1));
+        btn1.setId(cnt++);
+        btn1.setBackgroundColor(getResources().getColor(R.color.purple1));
+        btn2.setId(cnt++);
+        btn2.setBackgroundColor(getResources().getColor(R.color.blue3));
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        btn1.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceType")
             @Override
             public void onClick(View v) {
-                // 바로 위의 mail 정보를 가지고 있는 text view 가져옴
-                TextView t = findViewById(btn.getId()-1);
+                // 바로 위의     mail 정보를 가지고 있는 text view 가져옴
+                TextView t = findViewById(btn1.getId()-1);
                 String seletedId = t.getText().toString();
-                // mail : xxx@gmail.com -> 이런 형식으로 만들었으므로 split해서 2번째 요소만 가져옴
-                // 참고로 db에 '.'이 안들어가서 .com을 빼고 집어넣을 것, 공백과 '.'을 기준으로 나눔
                 String[] splitedId = seletedId.split(" |\\.");
-                Log.d("clicked : ", splitedId[2]);
+                Toast.makeText(SitterApplicationActivity.this, "clicked : " + splitedId[2], Toast.LENGTH_SHORT).show();
+
                 // db에 넣어줄 것임
                 postFirebaseDB(splitedId[2]);
             }
         });
 
-        linearLayout.addView(btn);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SitterApplicationActivity.this, CheckProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        linearLayout.addView(btn1);
+        linearLayout.addView(btn2);
     }
 
     // 동적으로 text view 추가하는 함수

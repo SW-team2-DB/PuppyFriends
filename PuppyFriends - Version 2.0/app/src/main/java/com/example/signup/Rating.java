@@ -1,7 +1,8 @@
-package com.example.signup;
+﻿package com.example.signup;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Rating extends AppCompatActivity {
 
-    String your_id, usertype, ratingtype, matching_id;
+    String your_id, usertype, ratingtype, matching_id, my_id;
 
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference = firebaseDatabase.getReference();
@@ -32,6 +33,8 @@ public class Rating extends AppCompatActivity {
     EditText review;
     Button ratingbtn;
 
+    Boolean terminateOK;
+
     int m;
     int p;
 
@@ -42,8 +45,15 @@ public class Rating extends AppCompatActivity {
         Intent intent = getIntent();
         your_id = intent.getExtras().getString("your_id");
         usertype = intent.getExtras().getString("usertype");
-
+        my_id = intent.getExtras().getString("my_id");
         matching_id = intent.getExtras().getString("matching_id");
+
+
+        /// 데이터베이스 테스트용 임시id
+//        your_id = "y";
+//        usertype = "owner";
+//        matching_id = "mmmm";
+        ///
 
         title = (TextView)findViewById(R.id.ratingtitle);
         detail = (TextView)findViewById(R.id.ratingdetail);
@@ -122,18 +132,156 @@ public class Rating extends AppCompatActivity {
 //            }
 //        });
 
-
         ratingbtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
+
                 if(point.getText().toString().equals("0"))  Toast.makeText(getApplicationContext(), "평점을 입력해주세요", Toast.LENGTH_LONG).show();
                 else{
-                    databaseReference.child("rating").child(your_id).child("point").push().setValue(m);
+
+                    databaseReference.child("matching").child(matching_id).child("status").child(usertype).setValue("종료");
+
                     databaseReference.child("rating").child(your_id).child("review").push().setValue(review.getText().toString());
-                    databaseReference.child("matching").child(matching_id).child("status").setValue("종료");
+
+                    databaseReference.child("rating").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            String mm;
+                            String cc;
+                            if(dataSnapshot.child(your_id).exists()){
+
+                                if(dataSnapshot.child(your_id).child("totalpoint").exists()){
+                                    //총점 가져오기
+                                    mm = dataSnapshot.child(your_id).child("totalpoint").getValue().toString();
+                                } else{
+                                    mm = "0";
+                                }
+                                if(dataSnapshot.child(your_id).child("count").exists()){
+                                    //카운트 가져오기
+                                    cc = dataSnapshot.child(your_id).child("count").getValue().toString();
+                                } else{
+                                    cc = "0";
+                                }
+                            }
+                            else{
+                                mm = "0"; cc = "0";
+                            }
+
+                            int mmm = Integer.parseInt(mm);
+                            int count = Integer.parseInt(cc);
+//                            int n = m; //입력한 점수
+                            int ff = mmm+m; // 가져온 총점 + 입력한 점수
+                            count++;
+
+                            databaseReference.child("rating").child(your_id).child("totalpoint").setValue(ff);
+                            databaseReference.child("rating").child(your_id).child("count").setValue(count);
+
+                            int evep = ff/count; //점수 평균
+                            databaseReference.child("rating").child(your_id).child("평점평균").setValue(evep);
+
+
+                            addRatedSitter(your_id, usertype, evep);
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+                    if(usertype.equals("owner")) {
+                        terminateOK(usertype);
+                        removeSittingDetailInfo(); //usertype이 owner이면 매칭이 종료된 후 '펫시터 구하기' 정보 삭제
+                    }
+
+                    else if(usertype.equals("sitter")) {
+                        terminateOK(usertype);
+                        removeSittingApplicationInfo(); //usertype이 owner이면 매칭이 종료된 후 sitting application info에서 정보 삭제
+                    }
+
+                    finish();
                 }
             }
         });
     }
+
+
+    private void terminateOK(final String ut){
+        databaseReference.child("matching").child(matching_id).child("status").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Boolean a = dataSnapshot.child(ut).getValue().toString().equals("종료");
+//                Boolean b = dataSnapshot.child("sitter").getValue().toString().equals("종료");
+//                terminateOK = a && b;
+                terminateOK = a;
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+    private void removeSittingDetailInfo(){
+        //매칭이 종료되면 DB에서 owner의 sitting_detail_info(견주가 '펫시터 구하기'를 위해 입력한 정보) 삭제
+        databaseReference.child("sitting_detail_info").child(my_id).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(terminateOK) {
+                    for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+                        postSnapshot.getRef().removeValue();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+    private void removeSittingApplicationInfo(){
+        //매칭이 종료되면 DB에서 sitting application info에서 정보 삭제
+        databaseReference.child("sitting_application_info").child(my_id).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(terminateOK) {
+//                    dataSnapshot.child(my_id).child("application_id").getRef().setValue("");
+
+                    for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+                        postSnapshot.getRef().removeValue();
+                    }
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void addRatedSitter(final String y, String ut, final int ev){
+        if(ut.equals("owner")){
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    int ord = 5-ev;
+
+                    databaseReference.child("rated_sitter").child(y).child("point").setValue(ev);
+                    databaseReference.child("rated_sitter").child(y).child("order").setValue(ord);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
+
+    }
+
 //
 //    private int nowpoint(){
 //

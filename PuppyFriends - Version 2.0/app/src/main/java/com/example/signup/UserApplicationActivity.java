@@ -34,6 +34,7 @@ public class UserApplicationActivity extends AppCompatActivity {
 
     LinearLayout linearLayout;
     Button myInfoBtn;
+    TextView title;
 
     String id;
     int size = -1;
@@ -48,6 +49,8 @@ public class UserApplicationActivity extends AppCompatActivity {
         setContentView(R.layout.application_status);
 
         linearLayout = findViewById(R.id.user_info_layout);
+
+        title = findViewById(R.id.applistatustitletext);
 
         // 전 화면에서 id값 가져옴
         Intent intent = getIntent();
@@ -125,9 +128,15 @@ public class UserApplicationActivity extends AppCompatActivity {
                     // 자신을 선택한 펫시터가 있으면
                     if(get.application_id.equals(id)){
                         // 목록 보여줌
+                        title.setText("신청 정보");
                         addTextViewLayout(result);
                         addButtonLayout();
                     }
+                    else{
+                        //자신을 선택한 펫시터가 없으면
+                        noApplication();
+                    }
+
                 }
             }
 
@@ -136,6 +145,10 @@ public class UserApplicationActivity extends AppCompatActivity {
                 Log.w("getFirebaseDatabase","loadPost:onCancelled", databaseError.toException());
             }
         });
+    }
+
+    private void noApplication(){ //자신을 선택한 펫시터가 없을 때
+        title.setText("아직 지원한 펫시터가 없습니다");
     }
 
     @SuppressLint("ResourceAsColor")
@@ -149,7 +162,7 @@ public class UserApplicationActivity extends AppCompatActivity {
         btn.setBackgroundColor(getResources().getColor(R.color.purple1));
 
         @SuppressLint("ResourceType") TextView t = findViewById(btn.getId()-1);
-        String seletedId = t.getText().toString();
+        final String seletedId = t.getText().toString();
         final String[] splitedId = seletedId.split(" |\\.");
 
         Toast.makeText(UserApplicationActivity.this, splitedId[2], Toast.LENGTH_SHORT).show();
@@ -170,8 +183,9 @@ public class UserApplicationActivity extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Intent intent = new Intent(UserApplicationActivity.this, Meeting.class);
-                        intent.putExtra("id", id);
+                        Intent intent = new Intent(UserApplicationActivity.this, Meetingbefore_agree.class);
+                        intent.putExtra("owner_id", id);
+                        intent.putExtra("sitter_id", splitedId[2]);
                         intent.putExtra("matching_id", matching_id);
                         startActivity(intent);
                     }
