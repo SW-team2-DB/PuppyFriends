@@ -1,14 +1,19 @@
 package com.sw.PuppyFriends;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.api.Distribution;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,7 +44,7 @@ public class MeetingResult extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.meeting_result);
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         matching_id = intent.getExtras().getString("matching_id");
         owner_id = intent.getExtras().getString("owner_id");
         sitter_id = intent.getExtras().getString("sitter_id");
@@ -61,6 +66,56 @@ public class MeetingResult extends AppCompatActivity {
         meetingresult8 = (TextView)findViewById(R.id.meetingresult8);
         meetingresult9 = (TextView)findViewById(R.id.meetingresult9);
         meetingresult10 = (TextView)findViewById(R.id.meetingresult10);
+
+
+        if(isSitter){
+            //펫시터의 매칭 취소
+            Button cancel = (Button)findViewById(R.id.cancel);
+            cancel.setOnClickListener(new View.OnClickListener() {
+                @SuppressLint("ResourceType")
+                @Override
+                public void onClick(View v) {
+                    //매칭 상태 변경
+                    mReference.child("matching").child(matching_id).child("status").child("owner").setValue("펫시터취소");
+                    mReference.child("matching").child(matching_id).child("status").child("sitter").setValue("펫시터취소");
+
+
+                    //펫시터 신청 정보 삭제
+                    removeSittingApplicationInfo();
+
+                    Intent homeintent = new Intent(getApplicationContext(), HomeActivity.class);
+                    homeintent.putExtra("id",sitter_id);
+                    startActivity(homeintent);
+                    finish();
+
+                }
+            });
+        }
+        else{
+            //견주의 매칭 취소
+            Button cancel = (Button)findViewById(R.id.cancel);
+            cancel.setOnClickListener(new View.OnClickListener() {
+                @SuppressLint("ResourceType")
+                @Override
+                public void onClick(View v) {
+                    //매칭 상태 변경
+                    mReference.child("matching").child(matching_id).child("status").child("owner").setValue("견주취소");
+                    mReference.child("matching").child(matching_id).child("status").child("sitter").setValue("견주취소");
+
+                    //견주 신청 정보 삭제
+                    removeSittingDetailInfo();
+
+                    //펫시터 신청 정보 삭제
+                    removeSittingApplicationInfo();
+
+                    Intent homeintent = new Intent(getApplicationContext(), HomeActivity.class);
+                    homeintent.putExtra("id",owner_id);
+                    startActivity(homeintent);
+                    finish();
+
+                }
+            });
+        }
 
 
 
@@ -247,4 +302,54 @@ public class MeetingResult extends AppCompatActivity {
             }
         });
     }
+
+
+    private void removeSittingDetailInfo(){
+        //매칭이 종료되면 DB에서 owner의 sitting_detail_info(견주가 '펫시터 구하기'를 위해 입력한 정보) 삭제
+        mReference.child("sitting_detail_info").child(owner_id).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+                    postSnapshot.getRef().removeValue();
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    String usertypekorean;
+
+    private void removeSittingApplicationInfo(){
+        //매칭이 종료되면 DB에서 sitting application info에서 정보 삭제
+        mReference.child("sitting_application_info").child(sitter_id).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                    dataSnapshot.child("application_id").getRef().setValue("");
+                if(isSitter){
+                    usertypekorean = "펫시터";
+                }
+                else{
+                    usertypekorean = "견주";
+                }
+                mReference.child("sitting_application_info").push().child("application_id").setValue(usertypekorean+"("+owner_id+") 취소");
+                for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
+                    postSnapshot.getRef().removeValue();
+                }
+
+
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
 }
