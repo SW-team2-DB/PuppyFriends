@@ -36,7 +36,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     private static final String TAG = EditProfileActivity.class.getSimpleName();
     Button btnsave;
     String id;
-    String gender1,loc1;
+    String gender1,loc1,age1;
 
     RadioGroup radioGroup, radioGroup2;
 
@@ -44,7 +44,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     private TextView textViewemailname;
     private DatabaseReference databaseReference;
     private EditText editTextName;
-    private EditText editTextAddress;
+    private EditText editTextAddress,editTextAge;
     private EditText editTextPhoneNo;
     private ImageView profileImageView;
     private FirebaseStorage firebaseStorage;
@@ -77,9 +77,11 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
         editTextName = (EditText)findViewById(R.id.EditTextName);
+        editTextAge = (EditText)findViewById(R.id.EditTextOlder);
         editTextAddress = (EditText)findViewById(R.id.EditTextAddress);
         editTextPhoneNo = (EditText)findViewById(R.id.EditTextPhoneNo);
         btnsave=(Button)findViewById(R.id.btnSaveButton);
+
 
         radioGroup = findViewById(R.id.radioGroup);//성별 라디오 그룹
         radioGroup2 = findViewById(R.id.radioGroup2);//지역 라디오 그룹
@@ -149,7 +151,8 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         String phoneno = editTextPhoneNo.getText().toString().trim();
         String gender = gender1;
         String loc=loc1;
-        Userinformation userinformation = new Userinformation(name,address,phoneno,gender,loc);
+        String age= editTextAge.getText().toString();
+        Userinformation userinformation = new Userinformation(name,address,phoneno,gender,loc,age);
         FirebaseUser user = firebaseAuth.getCurrentUser();
         databaseReference.child("users").child(username).child("Info").setValue(userinformation);
         databaseReference.child(user.getUid()).setValue(userinformation);

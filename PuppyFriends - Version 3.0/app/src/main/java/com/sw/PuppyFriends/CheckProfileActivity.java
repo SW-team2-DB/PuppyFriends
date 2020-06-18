@@ -26,7 +26,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class CheckProfileActivity extends AppCompatActivity {
 
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-    private TextView profileNameTextView, profileAddressTextView, profilePhonenoTextView,user_gender,user_loc;
+    private TextView profileNameTextView, profileAddressTextView, profilePhonenoTextView,user_gender,user_loc,user_age;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     private ImageView profilePicImageView;
@@ -63,6 +63,7 @@ public class CheckProfileActivity extends AppCompatActivity {
 
         user_gender = findViewById(R.id.user_gender);
         user_loc = findViewById(R.id.user_loc);
+        user_age = findViewById(R.id.user_age);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -80,11 +81,12 @@ public class CheckProfileActivity extends AppCompatActivity {
             @Override
             public void onDataChange( DataSnapshot dataSnapshot) {
                 Userinformation userProfile = dataSnapshot.getValue(Userinformation.class);
-                profileNameTextView.setText(dataSnapshot.child("name").getValue().toString());
-                profileAddressTextView.setText(dataSnapshot.child("address").getValue().toString());
+                profileNameTextView.setText("이름: "+dataSnapshot.child("name").getValue().toString());
+                profileAddressTextView.setText("상세주소: "+dataSnapshot.child("address").getValue().toString());
                 profilePhonenoTextView.setText(dataSnapshot.child("phoneno").getValue().toString());
-                user_gender.setText(dataSnapshot.child("gender").getValue().toString());
-                user_loc.setText(dataSnapshot.child("loc").getValue().toString());
+                user_gender.setText("원하는 매칭 지역: "+dataSnapshot.child("gender").getValue().toString());
+                user_loc.setText("원하는 매칭 지역: "+dataSnapshot.child("loc").getValue().toString());
+                user_age.setText("나이: "+dataSnapshot.child("age").getValue().toString());
             }
             @Override
             public void onCancelled( DatabaseError databaseError) {

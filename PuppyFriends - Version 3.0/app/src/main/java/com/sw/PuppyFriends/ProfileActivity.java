@@ -40,11 +40,14 @@ public class ProfileActivity  extends AppCompatActivity {
     private ImageView profilePicImageView;
     private FirebaseStorage firebaseStorage;
     private TextView textViewemailname;
-    private EditText editTextName;
+    private EditText editTextName,editTextAge;
 
-    TextView user_gender, user_loc;
+    TextView user_gender, user_loc,user_age;
     String loc1;
-    RadioGroup radioGroup3;
+    //RadioGroup radioGroup3;
+
+
+
     String id;
     String username;
 
@@ -59,10 +62,16 @@ public class ProfileActivity  extends AppCompatActivity {
         profileNameTextView = findViewById(R.id.profile_name_textView);
         profileAddressTextView = findViewById(R.id.profile_address_textView);
         profilePhonenoTextView = findViewById(R.id.profile_phoneno_textView);
+        editTextAge = findViewById(R.id.et_userage);
+
+
 
         user_gender = findViewById(R.id.user_gender);
         user_loc= findViewById(R.id.user_loc);
-        radioGroup3 = findViewById(R.id.radioGroup3);
+        user_age=findViewById(R.id.user_age);
+
+
+
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -89,6 +98,7 @@ public class ProfileActivity  extends AppCompatActivity {
                 profileNameTextView.setText(userProfile.getUserName());
                 user_gender.setText(userProfile.getUserGender());
                 user_loc.setText(userProfile.getUserLoc());
+                user_age.setText(userProfile.getUserAge());
                 profileAddressTextView.setText(userProfile.getUserAddress());
                 profilePhonenoTextView.setText(userProfile.getUserPhoneno());
                 textViewemailname=(TextView)findViewById(R.id.textViewEmailAdress);
@@ -122,7 +132,8 @@ public class ProfileActivity  extends AppCompatActivity {
                 String phoneno =  profilePhonenoTextView.getText().toString();
                 String gender = user_gender.getText().toString();
                 String loc = user_loc.getText().toString();
-                Userinformation userinformation = new Userinformation(name,address, phoneno, gender,loc);
+                String age = user_age.getText().toString();
+                Userinformation userinformation = new Userinformation(name,address, phoneno, gender,loc,age);
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 databaseReference.child("users").child(username).child("Info").setValue(userinformation);
                 databaseReference.child(user.getUid()).setValue(userinformation);
@@ -136,41 +147,14 @@ public class ProfileActivity  extends AppCompatActivity {
     public void buttonClickedEditLoc(View view) {
         LayoutInflater inflater = getLayoutInflater();
         View alertLayout = inflater.inflate(R.layout.layout_custom_dialog_edit_matching_loc, null);
+        final EditText etUserloc = alertLayout.findViewById(R.id.user_loc);
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setTitle("원하는매칭지역");
         alert.setView(alertLayout);
         alert.setCancelable(false);
 
-        RadioButton btn1 = findViewById(R.id.radioButton1);
-        RadioButton btn2 = findViewById(R.id.radioButton2);
-        RadioButton btn3 = findViewById(R.id.radioButton3);
-        RadioButton btn4 = findViewById(R.id.radioButton4);
-        RadioButton btn5 = findViewById(R.id.radioButton5);
 
-        radioGroup3 = findViewById(R.id.radioGroup3);
 
-        radioGroup3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId){
-                    case R.id.radioButton1:
-                        user_loc.setText("대덕구");
-                        break;
-                    case R.id.radioButton2:
-                        user_loc.setText("유성구");
-                        break;
-                    case R.id.radioButton3:
-                        user_loc.setText("동구");
-                        break;
-                    case R.id.radioButton4:
-                        user_loc.setText("서구");
-                        break;
-                    case R.id.radioButton5:
-                        user_loc.setText("중구");
-                        break;
-                }
-            }
-        });
 
         alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
@@ -185,17 +169,44 @@ public class ProfileActivity  extends AppCompatActivity {
                 String address = profileAddressTextView.getText().toString();
                 String phoneno =  profilePhonenoTextView.getText().toString();
                 String gender = user_gender.getText().toString();
-                String loc = user_loc.getText().toString();
-                Userinformation userinformation = new Userinformation(name,address, phoneno,gender,loc);
+                String loc = etUserloc.getText().toString();
+                String age = user_age.getText().toString();
+                Userinformation userinformation = new Userinformation(name,address, phoneno, gender,loc,age);
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 databaseReference.child("users").child(username).child("Info").setValue(userinformation);
                 databaseReference.child(user.getUid()).setValue(userinformation);
-                //radioGroup3.onEditorAction(EditorInfo.IME_ACTION_DONE);
+                etUserloc.onEditorAction(EditorInfo.IME_ACTION_DONE);
             }
         });
         AlertDialog dialog = alert.create();
         dialog.show();
     }
+    //매칭지역 수정할때 라디오 버튼 동작 메소드
+   /* public void RadioButtonChecked(View v) {
+
+        boolean checked= ((RadioButton) v).isChecked();
+
+
+        switch (v.getId()) {
+                    case R.id.radioButton1:
+                        if(checked) user_loc.setText("대덕구");
+                        break;
+                    case R.id.radioButton2:
+                        if(checked) user_loc.setText("유성구");
+                        break;
+                    case R.id.radioButton3:
+                        if(checked) user_loc.setText("동구");
+                        break;
+                    case R.id.radioButton4:
+                        if(checked) user_loc.setText("서구");
+                        break;
+                    case R.id.radioButton5:
+                        if(checked) user_loc.setText("중구");
+                        break;
+                }
+            }
+*/
+
     //상세주소 편집
     public void buttonClickedEditAddress(View view) {
         LayoutInflater inflater = getLayoutInflater();
@@ -219,7 +230,8 @@ public class ProfileActivity  extends AppCompatActivity {
                 String phoneno =  profilePhonenoTextView.getText().toString();
                 String gender = user_gender.getText().toString();
                 String loc = user_loc.getText().toString();
-                Userinformation userinformation = new Userinformation(name,address, phoneno,gender,loc);
+                String age = user_age.getText().toString();
+                Userinformation userinformation = new Userinformation(name,address, phoneno, gender,loc,age);
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 databaseReference.child("users").child(username).child("Info").setValue(userinformation);
                 databaseReference.child(user.getUid()).setValue(userinformation);
@@ -229,6 +241,44 @@ public class ProfileActivity  extends AppCompatActivity {
         AlertDialog dialog = alert.create();
         dialog.show();
     }
+
+    //나이변경
+    public void buttonClickedEditAge(View view) {
+        LayoutInflater inflater = getLayoutInflater();
+        View alertLayout = inflater.inflate(R.layout.layout_custom_dialog_edit_age, null);
+        final EditText etUserAge = alertLayout.findViewById(R.id.et_userage);
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("나이 수정");
+        alert.setView(alertLayout);
+        alert.setCancelable(false);
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String name = profileNameTextView.getText().toString();
+                String address = profileAddressTextView.getText().toString();
+                String phoneno =  profilePhonenoTextView.getText().toString();
+                String gender = user_gender.getText().toString();
+                String loc = user_loc.getText().toString();
+                String age = etUserAge.getText().toString();
+                Userinformation userinformation = new Userinformation(name,address, phoneno,gender,loc,age);
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                databaseReference.child("users").child(username).child("Info").setValue(userinformation);
+                databaseReference.child(user.getUid()).setValue(userinformation);
+                etUserAge.onEditorAction(EditorInfo.IME_ACTION_DONE);
+            }
+        });
+        AlertDialog dialog = alert.create();
+        dialog.show();
+    }
+
+
+
+    //전화번호 변경
     public void buttonClickedEditPhoneNo(View view) {
         LayoutInflater inflater = getLayoutInflater();
         View alertLayout = inflater.inflate(R.layout.layout_custom_dialog_edit_phoneno, null);
@@ -250,7 +300,8 @@ public class ProfileActivity  extends AppCompatActivity {
                 String phoneno =  etUserPhoneno.getText().toString();
                 String gender = user_gender.getText().toString();
                 String loc = user_loc.getText().toString();
-                Userinformation userinformation = new Userinformation(name,address, phoneno,gender,loc);
+                String age = user_age.getText().toString();
+                Userinformation userinformation = new Userinformation(name,address, phoneno,gender,loc,age);
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 databaseReference.child("users").child(username).child("Info").setValue(userinformation);
                 databaseReference.child(user.getUid()).setValue(userinformation);

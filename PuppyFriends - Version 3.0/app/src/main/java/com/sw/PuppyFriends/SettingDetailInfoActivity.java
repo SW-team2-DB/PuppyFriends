@@ -17,11 +17,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,6 +34,10 @@ import java.util.Map;
 public class SettingDetailInfoActivity extends AppCompatActivity {
 
     private DatabaseReference mPostReference;
+    DatabaseReference databaseReference;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseDatabase firebaseDatabase;
+
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
 //    DatabaseReference conditionRef = mRootRef.child("sitting_application_info");
 
@@ -40,8 +48,15 @@ public class SettingDetailInfoActivity extends AppCompatActivity {
 
     EditText userNameTxt;
     RadioGroup radioGroup;
+
+    RadioButton male_btn,female_btn;
+
     RadioGroup locRadioGroup;
+
+    RadioButton loc1_btn, loc2_btn, loc3_btn, loc4_btn,loc5_btn;
+
     EditText userAgeTxt;
+    EditText userAddress;
 
     EditText dateTxt1;
     EditText dateTxt2;
@@ -72,6 +87,13 @@ public class SettingDetailInfoActivity extends AppCompatActivity {
         id = intent.getExtras().getString("id");
         Toast.makeText(SettingDetailInfoActivity.this, "ID : " + id, Toast.LENGTH_SHORT).show();
 
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+       databaseReference = firebaseDatabase.getReference();
+
+      databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
+
+        final FirebaseUser user = firebaseAuth.getCurrentUser();//최근유저가져오기
 
 
 
@@ -84,12 +106,128 @@ public class SettingDetailInfoActivity extends AppCompatActivity {
         userAgeTxt = findViewById(R.id.user_age_inp_txt);
 
         radioGroup = findViewById(R.id.radio_btn_group);
+
+        male_btn = findViewById(R.id.male_btn);
+        female_btn = findViewById(R.id.female_btn);
+
         locRadioGroup = findViewById(R.id.loc_radio_btn_group);
+
+        loc1_btn= findViewById(R.id.loc1_btn);
+        loc2_btn= findViewById(R.id.loc2_btn);
+        loc3_btn= findViewById(R.id.loc3_btn);
+        loc4_btn= findViewById(R.id.loc4_btn);
+        loc5_btn= findViewById(R.id.loc5_btn);
+
+
+        userAddress = findViewById(R.id.user_address);//상세주소
+
         dataPicker = findViewById(R.id.dataPicker);
 
         priceTxt = findViewById(R.id.price_inp_txt);
 
         dateTxt = findViewById(R.id.contect_info_txt);
+
+        //프로필에서 겹치는 정보 다시 입력하지 않게 정보 가져오기
+        // 이름 띄우기
+        databaseReference.child("name").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                userNameTxt.setText(dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        // 상세주소 띄우기
+        databaseReference.child("address").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                userAddress.setText(dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        // loc 라디오 버튼에 띄우기
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
+                locRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                       if(dataSnapshot.child("loc").getValue().toString()=="대덕구"){
+                           ((RadioButton)locRadioGroup.getChildAt(0)).setChecked(true);
+
+                       }
+                        else if(dataSnapshot.child("loc").getValue().toString()=="유성구"){
+                           ((RadioButton)locRadioGroup.getChildAt(1)).setChecked(true);
+                       }
+                        else if(dataSnapshot.child("loc").getValue().toString()=="동구"){
+                           ((RadioButton)locRadioGroup.getChildAt(2)).setChecked(true);
+                       }
+                        else if(dataSnapshot.child("loc").getValue().toString()=="서구"){
+                           ((RadioButton)locRadioGroup.getChildAt(3)).setChecked(true);
+                        }
+                       else if(dataSnapshot.child("loc").getValue().toString()=="중구") {
+                           ((RadioButton)locRadioGroup.getChildAt(4)).setChecked(true);
+                        }
+                    }
+                });
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        //성별 띄우기
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
+                radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                        if(dataSnapshot.child("gender").getValue().toString()=="남자"){
+                            ((RadioButton)radioGroup.getChildAt(0)).setChecked(true);
+                        }
+                        else if(dataSnapshot.child("gender").getValue().toString()=="여자"){
+                            ((RadioButton)radioGroup.getChildAt(1)).setChecked(true);
+                        }
+
+                    }
+                });
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        // 나이 띄우기
+        databaseReference.child("age").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                userAgeTxt.setText(dataSnapshot.getValue().toString()+"살");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
 
         //설정한 값 받아오기
         mRootRef.child("sitting_detail_info").child(id).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -353,9 +491,9 @@ public class SettingDetailInfoActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if((dogNameTxt.getText().toString().equals("")) || (dogBreedTxt.getText().toString().equals("")) || (dogAgeTxt.getText().toString().equals(""))
-                        || (userNameTxt.getText().toString().equals("")) || (userAgeTxt.getText().toString().equals("")) || (loc == null)
-                        || (priceTxt.getText().toString().equals(""))){
+                         || (loc == null)|| (priceTxt.getText().toString().equals(""))){
                     Toast.makeText(SettingDetailInfoActivity.this, "입력되지 않은 문항이 있습니다.", Toast.LENGTH_LONG).show();
+
                 } else {
                     try {
                         Integer.parseInt(priceTxt.getText().toString());
@@ -367,6 +505,7 @@ public class SettingDetailInfoActivity extends AppCompatActivity {
                         Intent intent = new Intent(SettingDetailInfoActivity.this, UserApplicationActivity.class);
                         intent.putExtra("id", id);
                         startActivity(intent);
+                        finish();
                     } catch (NumberFormatException e) {
                         Toast.makeText(SettingDetailInfoActivity.this, "금액 항목에는 숫자만 입력 가능합니다.", Toast.LENGTH_SHORT).show();
                     }

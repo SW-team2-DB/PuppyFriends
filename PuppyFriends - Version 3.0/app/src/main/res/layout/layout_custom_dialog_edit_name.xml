@@ -22,6 +22,7 @@
             android:layout_weight=".7"
             android:imeOptions="actionDone"
             android:singleLine="true"
+            android:hint="홍길동"
             android:inputType="textPersonName|textCapSentences"/>
     </LinearLayout>
     <LinearLayout

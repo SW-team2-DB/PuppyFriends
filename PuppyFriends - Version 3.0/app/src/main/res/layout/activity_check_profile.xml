@@ -85,6 +85,32 @@
                 android:layout_marginBottom="40dp"
                 android:weightSum="2">
                 <ImageView
+                    android:id="@+id/imageViewName2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/baseline_account_circle_black_24dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"/>
+                <TextView
+                    android:id="@+id/user_age"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:text="나이:"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="25sp"
+                    android:textStyle="bold"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:weightSum="2">
+                <ImageView
                     android:id="@+id/imageViewName1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"

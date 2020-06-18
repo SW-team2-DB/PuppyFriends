@@ -8,10 +8,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class matchreport extends AppCompatActivity {
 
@@ -55,6 +59,42 @@ public class matchreport extends AppCompatActivity {
         bowel1 = (EditText)findViewById(R.id.bowel1);
         walk1 = (EditText)findViewById(R.id.walk1);
 
+        databaseReference.child(matching_id).child("사전만남").child("돌봄시간").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                matchtime1.setText(dataSnapshot.getValue().toString()+"분");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+            });
+
+        databaseReference.child(matching_id).child("사전만남").child("산책시간").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                walk1.setText(dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        databaseReference.child(matching_id).child("사전만남").child("돌봄시간").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                matchtime1.setText(dataSnapshot.getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
         //확인버튼 눌렀을 때
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +109,7 @@ public class matchreport extends AppCompatActivity {
                 String walk = walk1.getText().toString();
 
                 //DB에 올리기
+
                 if(petsittername.isEmpty()||matchtime.isEmpty()||eat.isEmpty()||bowel.isEmpty())
                     Toast.makeText(getApplicationContext(), "내용을 모두 채워주세요",Toast.LENGTH_LONG).show();
                 else{

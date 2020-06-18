@@ -125,6 +125,45 @@
             </TableRow>
 
             <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:weightSum="2">
+
+                <ImageView
+                    android:id="@+id/imageViewName2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="1dp"
+                    app:srcCompat="@drawable/baseline_account_circle_black_24dp" />
+
+                <TextView
+                    android:id="@+id/user_age"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:text="나이:"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="25sp" />
+
+                <Button
+                    android:id="@+id/buttonEditAge"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_toRightOf="@+id/profile_name_textView"
+                    android:background="@drawable/custom_button_background"
+                    android:drawableRight="@drawable/baseline_dialpad_black_24dp"
+                    android:onClick="buttonClickedEditAge" />
+            </TableRow>
+
+            <TableRow
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"

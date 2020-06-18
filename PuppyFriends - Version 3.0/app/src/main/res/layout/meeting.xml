@@ -197,7 +197,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:inputType="textPersonName"
+                        android:inputType="number"
                         android:hint="12시" />
 
                     <EditText
@@ -216,8 +216,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:inputType="textPersonName"
-                        android:hint="13시" />
+                        android:inputType="number"
+                        android:hint="15분" />
 
                     <EditText
                         android:id="@+id/meetingguide5"

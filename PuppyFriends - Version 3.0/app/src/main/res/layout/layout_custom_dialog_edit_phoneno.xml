@@ -22,6 +22,7 @@
             android:layout_weight=".7"
             android:imeOptions="actionDone"
             android:singleLine="true"
+            android:hint="핸드폰번호"
             android:inputType="number"/>
     </LinearLayout>
     <LinearLayout
