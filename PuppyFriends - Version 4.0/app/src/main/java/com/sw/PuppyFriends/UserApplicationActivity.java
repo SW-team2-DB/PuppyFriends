@@ -268,6 +268,7 @@ public class UserApplicationActivity extends AppCompatActivity {
                         intent.putExtra("user_name", user_name);
 
                         startActivity(intent);
+                        finish();
                     }
                 });
             }
@@ -359,7 +360,7 @@ public class UserApplicationActivity extends AppCompatActivity {
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String[] splitedId = seletedId.split(" |\\.");
+                final String[] splitedId = seletedId.split(" |\\.");
                 Toast.makeText(UserApplicationActivity.this, splitedId[0], Toast.LENGTH_SHORT).show();
 
                 getMatchingId(splitedId[0]);
@@ -376,7 +377,7 @@ public class UserApplicationActivity extends AppCompatActivity {
 ////////////////////////////////////////////
                         Intent intent = new Intent(UserApplicationActivity.this, Meetingbefore_agree.class);
                         intent.putExtra("owner_id", id);
-                        intent.putExtra("sitter_id", seletedId);
+                        intent.putExtra("sitter_id", splitedId[0]);
                         intent.putExtra("matching_id", matching_id);
                         startActivity(intent);
                         finish();
