@@ -236,7 +236,7 @@ public class SettingDetailInfoActivity extends AppCompatActivity {
                     if(dataSnapshot.child("desired_price").exists()){
                         if(dataSnapshot.child("date").exists()){
                             date = dataSnapshot.child("date").getValue().toString();
-                        } else date = "";
+                        } else date = "1/1";
 
                         if(dataSnapshot.child("desired_price").exists()){
                             desired_price = dataSnapshot.child("desired_price").getValue().toString();
@@ -279,7 +279,8 @@ public class SettingDetailInfoActivity extends AppCompatActivity {
                             dataPicker.init(2020, month-1, day, new DatePicker.OnDateChangedListener() {
                                 @Override
                                 public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                    date = monthOfYear-1 + "/" + dayOfMonth;
+//                                    date = monthOfYear-1 + "/" + dayOfMonth;
+                                    date = monthOfYear+1 + "/" + dayOfMonth;
                                 }
                             });
                         } else {
@@ -385,9 +386,30 @@ public class SettingDetailInfoActivity extends AppCompatActivity {
                         getCheckBoxStatus();
                         Integer.parseInt(priceTxt.getText().toString());
 
+                        ///////////////////////////// DatePicker 안만지면 db에 date값 안들어가서 펫시터가 필터링하면 튕기는 오류 수정
+                        mRootRef.child("sitting_detail_info").child(id).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                if(!dataSnapshot.child("date").exists()){
+                                    dataSnapshot.child("date").getRef().setValue("1/1");
+                                }
+                                else if(dataSnapshot.child("date").getValue().toString().equals("")){
+                                    dataSnapshot.child("date").getRef().setValue("1/1");
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+                        /////////////////////////////
+
                         postFirebaseDB(id, dogNameTxt.getText().toString(), dogBreedTxt.getText().toString(), dogAgeTxt.getText().toString(),
                                 userNameTxt.getText().toString(), gender, userAgeTxt.getText().toString(), loc,
                                 date,priceTxt.getText().toString(), Byte.toString(isChecked));
+
+
 
                         Intent intent = new Intent(SettingDetailInfoActivity.this, UserApplicationActivity.class);
                         intent.putExtra("id", id);
