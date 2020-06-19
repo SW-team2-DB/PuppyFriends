@@ -46,8 +46,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:layout_margin="10dp"
-            android:inputType="textPersonName"
-            android:hint="돌봄 한시간 전" />
+            android:inputType="datetime"
+            android:hint="2020-6-20" />
 
     </LinearLayout>
 
