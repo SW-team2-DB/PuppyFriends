@@ -8,6 +8,7 @@ import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -153,7 +154,7 @@ public class SitterApplicationActivity extends Activity {
                             && (Integer.parseInt(get.desired_price) <= Integer.parseInt(price2)) && (differ <= dateSelection*5) &&
                             location.equals("상관없음") && (!key.equals(id)) && (service == serviceType)) {
 
-                        addLayout(get.id + ".com");
+                        addLayout(get.id + ".com", id);
 //                        addTextViewLayout(result);
 //                        addButtonLayout();
                         title.setText("신청 정보");
@@ -163,7 +164,7 @@ public class SitterApplicationActivity extends Activity {
                             && (Integer.parseInt(get.desired_price) <= Integer.parseInt(price2)) && (differ <= dateSelection*5) &&
                             location.equals(get.location) && (!key.equals(id)) && (service == serviceType)) {
 
-                        addLayout(get.id + ".com");
+                        addLayout(get.id + ".com", id);
 //                        addTextViewLayout(result);
 //                        addButtonLayout();
                         title.setText("신청 정보");
@@ -219,7 +220,7 @@ public class SitterApplicationActivity extends Activity {
         return Integer.MAX_VALUE;
     }
 
-    private void addLayout(String userIdTxt){
+    private void addLayout(String userIdTxt, final String my_id){
         LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.profile_view, null);
 
@@ -243,6 +244,8 @@ public class SitterApplicationActivity extends Activity {
         button.setBackground(getResources().getDrawable(R.drawable.custom_btn));
         button.setId(cnt++);
 
+        final String seletedId = textView.getText().toString();
+
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         params.setMargins(0, 30, 30, 30);
@@ -263,9 +266,20 @@ public class SitterApplicationActivity extends Activity {
         });
 
         button.setOnClickListener(new View.OnClickListener() {
+            final String idid[] = seletedId.split("@");
+
             @Override
             public void onClick(View v) {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(getApplicationContext(), CheckProfileActivity.class);
+                        intent.putExtra("id", idid[0]);
+                        intent.putExtra("my_id", my_id);
+                        startActivity(intent);
 
+                    }
+                }, 500);
             }
         });
 
