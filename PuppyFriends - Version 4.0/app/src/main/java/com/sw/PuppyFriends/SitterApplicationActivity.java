@@ -138,6 +138,10 @@ public class SitterApplicationActivity extends Activity {
                 boolean flag = false;
                 for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
 
+                    /////////////////////////////////////////////////////////
+                    if(postSnapshot.exists() && postSnapshot.child("date").exists() && !postSnapshot.child("date").getValue().toString().equals("")){
+                    /////////////////////////////////////////////////////////
+
                     String key = postSnapshot.getKey();
                     SittingDetailInfo get;
 
@@ -173,6 +177,11 @@ public class SitterApplicationActivity extends Activity {
                         flag = true;
 
                     }
+
+
+                    /////////////////////////////////////////////////////////
+                    }
+                    /////////////////////////////////////////////////////////
                 }
 
                 if(!flag) {
@@ -189,7 +198,7 @@ public class SitterApplicationActivity extends Activity {
 
     @SuppressLint("SimpleDateFormat")
     private long calDateDiffer(String s){
-        String[] splited = s.split("/");
+         String[] splited = s.split("/");
         SimpleDateFormat format = null;
 
         long now = System.currentTimeMillis();
