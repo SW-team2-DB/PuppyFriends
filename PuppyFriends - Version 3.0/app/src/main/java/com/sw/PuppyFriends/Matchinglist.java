@@ -269,9 +269,6 @@ public class Matchinglist extends AppCompatActivity {
         }
         else btn.setClickable(false);
 
-
-
-
         linearLayout.addView(btn);
     }
 

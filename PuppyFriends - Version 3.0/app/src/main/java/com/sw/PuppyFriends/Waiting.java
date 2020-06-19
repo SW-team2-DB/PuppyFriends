@@ -114,7 +114,8 @@ public class Waiting extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
-                        postSnapshot.getRef().removeValue();
+//                        postSnapshot.getRef().removeValue();
+                        postSnapshot.getRef().setValue("");
 
                 }
             }
@@ -134,12 +135,10 @@ public class Waiting extends AppCompatActivity {
 //                    dataSnapshot.child("application_id").getRef().setValue("");
                     databaseReference.child("sitting_application_info").push().child("application_id").setValue("견주("+owner_id+") 취소");
                     for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
-                        postSnapshot.getRef().removeValue();
+//                        postSnapshot.getRef().removeValue();
+                        postSnapshot.getRef().setValue("");
                     }
-
-
                 }
-
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {

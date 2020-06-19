@@ -1,10 +1,12 @@
 package com.sw.PuppyFriends;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,15 +23,14 @@ public class HomeActivity extends AppCompatActivity {
 
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
-    Button searchSitterButton;
-    Button doSitterButton;
-    Button sittingcheck;
-    Button sitterlistbtn;
+    ImageButton searchSitterButton;
+    ImageButton doSitterButton;
+    ImageButton sittingcheck;
+    ImageButton sitterlistbtn;
     Button btn_guide;
 
     String id;
     DatabaseReference mPostReference;
-    FirebaseMessageManager manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,16 +42,14 @@ public class HomeActivity extends AppCompatActivity {
         id = intent.getExtras().getString("id");
         Toast.makeText(HomeActivity.this, "ID : " + id, Toast.LENGTH_SHORT).show();
 
-        searchSitterButton = (Button) findViewById(R.id.search);
-        doSitterButton = (Button) findViewById(R.id.sitter);
-        sittingcheck = (Button)findViewById(R.id.sittingcheck);
+        searchSitterButton = (ImageButton) findViewById(R.id.search);
+        doSitterButton = (ImageButton) findViewById(R.id.sitter);
+        sittingcheck = (ImageButton)findViewById(R.id.sittingcheck);
         btn_guide = (Button)findViewById(R.id.btn_guide);
 
 //        postToken();
 
         // 푸시알림 보내는 코드
-        manager = new FirebaseMessageManager();
-        manager.postUpstreamMsg("userA", "test", "test message");
 
         sittingcheck.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +60,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        sitterlistbtn = (Button)findViewById(R.id.sitterlistbtn);
+        sitterlistbtn = (ImageButton)findViewById(R.id.sitterlistbtn);
         sitterlistbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,7 +78,7 @@ public class HomeActivity extends AppCompatActivity {
                 databaseReference.child("sitting_detail_info").child(id).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if(!dataSnapshot.exists()){ //없을 때 입력받기
+                        if(!dataSnapshot.exists() || !dataSnapshot.child("desired_price").exists() || dataSnapshot.child("desired_price").getValue().toString().equals("")){ //없을 때 입력받기 >> (수정)없거나 공백일 때 입력받기
                             Intent intent = new Intent(getApplicationContext(), SettingDetailInfoActivity.class);
                             intent.putExtra("id", id);
                             startActivity(intent);
@@ -135,10 +134,12 @@ public class HomeActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+
         btn_guide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent guide = new Intent(getApplicationContext(), Usingguide.class);
+                guide.putExtra("id",id);
                 startActivity(guide);
                 finish();
             }

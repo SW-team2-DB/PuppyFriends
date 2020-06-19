@@ -117,8 +117,6 @@ public class MeetingResult extends AppCompatActivity {
             });
         }
 
-
-
         agree = (Button)findViewById(R.id.result_agree_btn);
         agree.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -310,8 +308,8 @@ public class MeetingResult extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
-                    postSnapshot.getRef().removeValue();
-
+//                        postSnapshot.getRef().removeValue();
+                        postSnapshot.getRef().setValue("");
                 }
             }
 
@@ -326,7 +324,9 @@ public class MeetingResult extends AppCompatActivity {
 
     private void removeSittingApplicationInfo(){
         //매칭이 종료되면 DB에서 sitting application info에서 정보 삭제
-        mReference.child("sitting_application_info").child(sitter_id).addListenerForSingleValueEvent(new ValueEventListener() {
+        String[] sitterId = sitter_id.split("\\.");
+
+        mReference.child("sitting_application_info").child(sitterId[0]).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 //                    dataSnapshot.child("application_id").getRef().setValue("");
@@ -338,16 +338,13 @@ public class MeetingResult extends AppCompatActivity {
                 }
                 mReference.child("sitting_application_info").push().child("application_id").setValue(usertypekorean+"("+owner_id+") 취소");
                 for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
-                    postSnapshot.getRef().removeValue();
+//                        postSnapshot.getRef().removeValue();
+                    postSnapshot.getRef().setValue("");
                 }
-
-
             }
-
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
     }

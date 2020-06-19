@@ -2,19 +2,29 @@ package com.sw.PuppyFriends;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.content.res.XmlResourceParser;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
+import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.load.engine.Resource;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,6 +36,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class SitterApplicationActivity extends Activity {
 
@@ -41,9 +52,10 @@ public class SitterApplicationActivity extends Activity {
     String price1;
     String price2;
     String location;
+    byte serviceType = (byte) 0;
 
     int dateSelection;
-    int size = getSize();
+    int size;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -63,10 +75,10 @@ public class SitterApplicationActivity extends Activity {
         price2 = intent.getExtras().getString("price2");
         dateSelection = intent.getExtras().getInt("date");
         location = intent.getExtras().getString("location");
+        serviceType = intent.getExtras().getByte("service");
+        size = getSize();
 
-        Log.d("info : ", id + " , " + price1 + "~" + price2 + " , " +  Integer.toString(dateSelection*5) + location);
-
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat format = new SimpleDateFormat("YYYY/MM/dd");
+        Log.d("info : ", String.valueOf(size));
 
         // 견주 목록 출력
         getFirebaseDB();
@@ -82,7 +94,7 @@ public class SitterApplicationActivity extends Activity {
 
         // 처음에는 is_connected 부분을 f로 지정함
         // 만약 견주가 펫시터를 선택하면 그 때 t로 바뀌게 됌
-        SittingApplicationInfo post = new SittingApplicationInfo(id,"sitter", str, false, Integer.toString(size++));
+        SittingApplicationInfo post = new SittingApplicationInfo(id,"sitter", str, false, Integer.toString(++size));
 
         postValue = post.toMap();
 
@@ -96,6 +108,7 @@ public class SitterApplicationActivity extends Activity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 size = (int) dataSnapshot.getChildrenCount();
+                Log.d("account size : ", String.valueOf(size));
             }
 
             @Override
@@ -118,41 +131,57 @@ public class SitterApplicationActivity extends Activity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                linearLayout.removeAllViews();
+//                linearLayout.removeAllViews();
 
                 Log.d("getFirebaseDB","key : " + dataSnapshot.getChildrenCount());
 
                 boolean flag = false;
                 for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
 
+                    /////////////////////////////////////////////////////////
+                    if(postSnapshot.exists() && postSnapshot.child("date").exists() && !postSnapshot.child("date").getValue().toString().equals("")){
+                    /////////////////////////////////////////////////////////
+
                     String key = postSnapshot.getKey();
                     SittingDetailInfo get;
 
                     get = postSnapshot.getValue(SittingDetailInfo.class);
-                    result = "id : " + get.id + ".com";
+//                    result = "mail : " + get.id + ".com";
 
                     long differ = calDateDiffer(get.date);
-                    Log.d("firebase key", key + "    " + differ);
+                    byte service = 0;
+
+                    if(get.service_type != null)
+                        service = (byte) Integer.parseInt(get.service_type);
+                    Log.d("service type", String.valueOf(service));
+                    service &= serviceType;
 
                     if(get.type.equals("not-sitter") && (Integer.parseInt(get.desired_price) >= Integer.parseInt(price1))
                             && (Integer.parseInt(get.desired_price) <= Integer.parseInt(price2)) && (differ <= dateSelection*5) &&
-                            location.equals("상관없음") && (!key.equals(id))) {
+                            location.equals("상관없음") && (!key.equals(id)) && (service == serviceType)) {
 
-                        addTextViewLayout(result);
-                        addButtonLayout();
+                        addLayout(get.id + ".com", id);
+//                        addTextViewLayout(result);
+//                        addButtonLayout();
                         title.setText("신청 정보");
                         flag = true;
 
                     } else if(get.type.equals("not-sitter") && (Integer.parseInt(get.desired_price) >= Integer.parseInt(price1))
                             && (Integer.parseInt(get.desired_price) <= Integer.parseInt(price2)) && (differ <= dateSelection*5) &&
-                            location.equals(get.location) && (!key.equals(id))) {
+                            location.equals(get.location) && (!key.equals(id)) && (service == serviceType)) {
 
-                        addTextViewLayout(result);
-                        addButtonLayout();
+                        addLayout(get.id + ".com", id);
+//                        addTextViewLayout(result);
+//                        addButtonLayout();
                         title.setText("신청 정보");
                         flag = true;
 
                     }
+
+
+                    /////////////////////////////////////////////////////////
+                    }
+                    /////////////////////////////////////////////////////////
                 }
 
                 if(!flag) {
@@ -169,7 +198,7 @@ public class SitterApplicationActivity extends Activity {
 
     @SuppressLint("SimpleDateFormat")
     private long calDateDiffer(String s){
-        String[] splited = s.split("/");
+         String[] splited = s.split("/");
         SimpleDateFormat format = null;
 
         long now = System.currentTimeMillis();
@@ -202,71 +231,73 @@ public class SitterApplicationActivity extends Activity {
         return Integer.MAX_VALUE;
     }
 
-    // 동적으로 버튼 추가하는 함수
-    private void addButtonLayout(){
-        final Button btn1 = new Button(this);
-        final Button btn2 = new Button(this);
+    private void addLayout(String userIdTxt, final String my_id){
+        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.profile_view, null);
 
-        // 버튼 속성
-        btn1.setText("선택");
-        btn1.setGravity(Gravity.CENTER);
-        btn1.setTextSize(15);
+        LinearLayout layout = (LinearLayout) view.findViewById(R.id.user_info_view);
+        ((ViewGroup) layout.getParent()).removeView(layout);
 
-        btn2.setText("프로필 확인하기");
-        btn2.setGravity(Gravity.CENTER);
-        btn2.setTextSize(15);
+        TextView textView = new TextView(this);
+        textView.setText(userIdTxt);
+        textView.setTextSize(20);
+        textView.setGravity(Gravity.CENTER);
+        textView.setId(cnt++);
 
-        // 동적으로 아이디 설정, 숫자임
-        // text view를 먼저 넣고 버튼을 넣어서 text view 아이디가 0이면 버튼 아이디는 1임
-        btn1.setId(cnt++);
-        btn1.setBackgroundColor(getResources().getColor(R.color.purple1));
-        btn2.setId(cnt++);
-        btn2.setBackgroundColor(getResources().getColor(R.color.blue3));
+        View view1 = new View(this);
+        view1.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,1));
 
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("ResourceType")
+        final Button button = new Button(this);
+        button.setText("프로필 확인");
+        button.setTextColor(Color.WHITE);
+        button.setGravity(Gravity.CENTER);
+        button.setBackground(getResources().getDrawable(R.drawable.custom_btn));
+        button.setId(cnt++);
+
+        final String seletedId = textView.getText().toString();
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.setMargins(0, 30, 30, 30);
+        button.setLayoutParams(params);
+        textView.setLayoutParams(params);
+
+        layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 바로 위의     mail 정보를 가지고 있는 text view 가져옴
-                TextView t = findViewById(btn1.getId()-1);
+                @SuppressLint("ResourceType") TextView t = findViewById(button.getId()-1);
                 String seletedId = t.getText().toString();
                 String[] splitedId = seletedId.split(" |\\.");
-                Toast.makeText(SitterApplicationActivity.this, "clicked : " + splitedId[2], Toast.LENGTH_SHORT).show();
+                Toast.makeText(SitterApplicationActivity.this, "clicked : " + splitedId[0], Toast.LENGTH_SHORT).show();
 
-                // db에 넣어줄 것임
-                postFirebaseDB(splitedId[2]);
+                postFirebaseDB(splitedId[0]);
                 finish();
             }
         });
 
-        btn2.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
+            final String idid[] = seletedId.split("@");
+
             @Override
             public void onClick(View v) {
-                @SuppressLint("ResourceType") TextView t = findViewById(btn1.getId()-1);
-                String seletedId = t.getText().toString();
-                String[] splitedId = seletedId.split(" |\\.");
-                Intent intent = new Intent(SitterApplicationActivity.this, CheckProfileActivity.class);
-                intent.putExtra("my_id",id);
-                intent.putExtra("id",splitedId[2]);
-//                Toast.makeText(SitterApplicationActivity.this, "clicked : " + splitedId[2], Toast.LENGTH_SHORT).show();
-                startActivity(intent);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(getApplicationContext(), CheckProfileActivity.class);
+                        intent.putExtra("id", idid[0]);
+                        intent.putExtra("my_id", my_id);
+                        startActivity(intent);
+
+                    }
+                }, 500);
             }
         });
 
-        linearLayout.addView(btn1);
-        linearLayout.addView(btn2);
-    }
-
-    // 동적으로 text view 추가하는 함수
-    private void addTextViewLayout(String str){
-        TextView textView = new TextView(this);
-
-        // text view 속성
-        textView.setText(str);
-        textView.setTextSize(20);
-        textView.setGravity(Gravity.CENTER);
-        textView.setId(cnt++);
-        linearLayout.addView(textView);
+        layout.addView(textView);
+        layout.addView(view1);
+        layout.addView(button);
+        linearLayout.addView(layout);
     }
 
 }
