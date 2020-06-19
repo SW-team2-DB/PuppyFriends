@@ -78,7 +78,7 @@ public class HomeActivity extends AppCompatActivity {
                 databaseReference.child("sitting_detail_info").child(id).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if(!dataSnapshot.exists()){ //없을 때 입력받기
+                        if(!dataSnapshot.exists() || !dataSnapshot.child("desired_price").exists() || dataSnapshot.child("desired_price").getValue().toString().equals("")){ //없을 때 입력받기 >> (수정)없거나 공백일 때 입력받기
                             Intent intent = new Intent(getApplicationContext(), SettingDetailInfoActivity.class);
                             intent.putExtra("id", id);
                             startActivity(intent);

@@ -308,7 +308,8 @@ public class MeetingResult extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
-                    postSnapshot.getRef().removeValue();
+//                        postSnapshot.getRef().removeValue();
+                        postSnapshot.getRef().setValue("");
                 }
             }
 
@@ -337,7 +338,8 @@ public class MeetingResult extends AppCompatActivity {
                 }
                 mReference.child("sitting_application_info").push().child("application_id").setValue(usertypekorean+"("+owner_id+") 취소");
                 for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
-                    postSnapshot.getRef().removeValue();
+//                        postSnapshot.getRef().removeValue();
+                    postSnapshot.getRef().setValue("");
                 }
             }
 
