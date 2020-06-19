@@ -1,0 +1,490 @@
+[
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_add_profile.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\ic_add_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_custom_dialog_edit_matching_loc.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\layout_custom_dialog_edit_matching_loc.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rectangle_backgroung_edittext.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\rectangle_backgroung_edittext.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dog13.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\dog13.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_home_black_24dp.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\ic_home_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_custom_btn.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\custom_btn.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_custom_dialog_edit_age.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\layout_custom_dialog_edit_age.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_favorite.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\favorite.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_matchreport.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\activity_matchreport.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dog4.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\dog4.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_home2.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable-v21\\home2.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_baseline_account_box_black_24dp.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\baseline_account_box_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_person_white_24dp.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\ic_person_white_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_back_et_othermsgbox.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\back_et_othermsgbox.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_gallery.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\gallery.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_baseline_account_circle_black_24dp.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\baseline_account_circle_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_application_status.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\application_status.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_baseline_dialpad_black_24dp.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\baseline_dialpad_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_defavatar.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\defavatar.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dog3.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\dog3.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_curved_button.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\curved_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_edit_24.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\ic_baseline_edit_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_detail_condition_check.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\detail_condition_check.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_rating.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\rating.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_matchreportresult.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\activity_matchreportresult.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_back_et_mymsgbox.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\back_et_mymsgbox.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_report.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\activity_report.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_baseline_email_black_24dp.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\baseline_email_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\menu_bottom_navigation.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\menu\\bottom_navigation.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_db.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable-v24\\db.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_menu_camera.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\ic_menu_camera.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_ongoing_petsitting.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\ongoing_petsitting.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_register.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_account_circle_black_24dp.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\ic_account_circle_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_back_et_name.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\back_et_name.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dog12.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\dog12.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_home4.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable-v21\\home4.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_report_problem_24.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\ic_baseline_report_problem_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_reset_password.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\activity_reset_password.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_login_image.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\login_image.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_home1.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable-v21\\home1.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_profile.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\activity_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_waiting.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\waiting.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_menu_slideshow.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\ic_menu_slideshow.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_baseline_school_black_24dp.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\baseline_school_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_loading.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\loading.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_et_name_cursor.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\et_name_cursor.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_menu_manage.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\ic_menu_manage.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_rounded_corner1.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable-v21\\rounded_corner1.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_detail_condition_setting.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\detail_condition_setting.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dog16.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\dog16.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_chat.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\activity_chat.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_favorite_white_24dp.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\ic_favorite_white_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_meeting.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\meeting.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_message_area.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\message_area.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_custom_button.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\custom_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dog1.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\dog1.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_logout.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\logout.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_custom_dialog_edit_address.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\layout_custom_dialog_edit_address.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_baseline_home_24.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\ic_baseline_home_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_add_black_24dp.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\ic_add_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_baseline_create_black_24dp.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\baseline_create_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dog10.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\dog10.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_menu_gallery.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\ic_menu_gallery.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_baseline_home_white_24dp.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\baseline_home_white_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_meeting_result.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\meeting_result.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_done_24px.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\ic_done_24px.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_sitterlist.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\sitterlist.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_circle_accent.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\circle_accent.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rounded_fg.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\rounded_fg.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_using_guide.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\using_guide.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_side_nav_bar.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\side_nav_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_custom_dialog_edit_phoneno.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\layout_custom_dialog_edit_phoneno.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_baseline_phone_black_24dp.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\baseline_phone_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_account_circle_black_36dp.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\ic_account_circle_black_36dp.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_matchinglist.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\matchinglist.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_line_divider.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\line_divider.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_login_semi_circle.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\login_semi_circle.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dog11.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\dog11.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_home3.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable-v21\\home3.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_login.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\login.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_bottom_border.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\bottom_border.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_custom_button_background.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\custom_button_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_baseline_people_outline_black_24dp.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\baseline_people_outline_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_layout_custom_dialog_edit_name.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\layout_custom_dialog_edit_name.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_rounded_corner2.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable-v21\\rounded_corner2.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_profile_view.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\profile_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_intro.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\activity_intro.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_edit_profile.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\activity_edit_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dog2.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\dog2.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_send_black_24dp.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\ic_send_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_condition_setting.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\condition_setting.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_home.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\activity_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_baseline_location_on_black_24dp.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\baseline_location_on_black_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_meetingbefore_agree.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\activity_meetingbefore_agree.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_chat_rounded_rect_bg.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\chat_rounded_rect_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_check_profile.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\activity_check_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_users.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\activity_users.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_send.png.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\send.png"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_menu_send.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\ic_menu_send.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_menu_share.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\drawable\\ic_menu_share.xml"
+    },
+    {
+        "merged": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_tos.xml.flat",
+        "source": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\src\\main\\res\\layout\\activity_tos.xml"
+    }
+]
