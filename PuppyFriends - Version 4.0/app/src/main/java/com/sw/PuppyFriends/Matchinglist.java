@@ -254,7 +254,7 @@ public class Matchinglist extends AppCompatActivity {
                                     intent.putExtra("usertype", usertype);
                                     startActivity(intent);
                                 } else { //작성 없으면
-                                    Toast.makeText(getApplicationContext(), "펫시터가 돌봄일지를 작성하지 않았습니다", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), "펫시터가 돌봄일지를 작성할 때 까지 기다려 주세요!", Toast.LENGTH_LONG).show();
                                 }
 
 //                            Toast.makeText(getApplicationContext(), mk+"는 종료되었습니다.", Toast.LENGTH_SHORT).show();

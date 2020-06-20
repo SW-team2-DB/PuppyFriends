@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\lee\\test\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hy\\values-hy.xml",
+            "outputFile": "C:\\Users\\lee\\test4\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hy\\values-hy.xml",
             "map": [
                 {
                     "source": "C:\\Users\\lee\\.gradle\\caches\\transforms-2\\files-2.1\\75e7c473eccef2b3a0eec97fa3a7825b\\jetified-play-services-base-17.1.0\\res\\values-hy\\values.xml",

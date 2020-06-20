@@ -140,46 +140,46 @@ public class SitterApplicationActivity extends Activity {
 
                     /////////////////////////////////////////////////////////
                     if(postSnapshot.exists() && postSnapshot.child("date").exists() && !postSnapshot.child("date").getValue().toString().equals("")){
-                    /////////////////////////////////////////////////////////
+                        /////////////////////////////////////////////////////////
 
-                    String key = postSnapshot.getKey();
-                    SittingDetailInfo get;
+                        String key = postSnapshot.getKey();
+                        SittingDetailInfo get;
 
-                    get = postSnapshot.getValue(SittingDetailInfo.class);
+                        get = postSnapshot.getValue(SittingDetailInfo.class);
 //                    result = "mail : " + get.id + ".com";
 
-                    long differ = calDateDiffer(get.date);
-                    byte service = 0;
+                        long differ = calDateDiffer(get.date);
+                        byte service = 0;
 
-                    if(get.service_type != null)
-                        service = (byte) Integer.parseInt(get.service_type);
-                    Log.d("service type", String.valueOf(service));
-                    service &= serviceType;
+                        if(get.service_type != null)
+                            service = (byte) Integer.parseInt(get.service_type);
+                        Log.d("service type", String.valueOf(service));
+                        service &= serviceType;
 
-                    if(get.type.equals("not-sitter") && (Integer.parseInt(get.desired_price) >= Integer.parseInt(price1))
-                            && (Integer.parseInt(get.desired_price) <= Integer.parseInt(price2)) && (differ <= dateSelection*5) &&
-                            location.equals("상관없음") && (!key.equals(id)) && (service == serviceType)) {
+                        if(get.type.equals("not-sitter") && (Integer.parseInt(get.desired_price) >= Integer.parseInt(price1))
+                                && (Integer.parseInt(get.desired_price) <= Integer.parseInt(price2)) && (differ <= dateSelection*5) &&
+                                location.equals("상관없음") && (!key.equals(id)) && (service == serviceType)) {
 
-                        addLayout(get.id + ".com", id);
+                            addLayout(get.id + ".com", id);
 //                        addTextViewLayout(result);
 //                        addButtonLayout();
-                        title.setText("신청 정보");
-                        flag = true;
+                            title.setText("신청 정보");
+                            flag = true;
 
-                    } else if(get.type.equals("not-sitter") && (Integer.parseInt(get.desired_price) >= Integer.parseInt(price1))
-                            && (Integer.parseInt(get.desired_price) <= Integer.parseInt(price2)) && (differ <= dateSelection*5) &&
-                            location.equals(get.location) && (!key.equals(id)) && (service == serviceType)) {
+                        } else if(get.type.equals("not-sitter") && (Integer.parseInt(get.desired_price) >= Integer.parseInt(price1))
+                                && (Integer.parseInt(get.desired_price) <= Integer.parseInt(price2)) && (differ <= dateSelection*5) &&
+                                location.equals(get.location) && (!key.equals(id)) && (service == serviceType)) {
 
-                        addLayout(get.id + ".com", id);
+                            addLayout(get.id + ".com", id);
 //                        addTextViewLayout(result);
 //                        addButtonLayout();
-                        title.setText("신청 정보");
-                        flag = true;
+                            title.setText("신청 정보");
+                            flag = true;
 
-                    }
+                        }
 
 
-                    /////////////////////////////////////////////////////////
+                        /////////////////////////////////////////////////////////
                     }
                     /////////////////////////////////////////////////////////
                 }
@@ -198,7 +198,7 @@ public class SitterApplicationActivity extends Activity {
 
     @SuppressLint("SimpleDateFormat")
     private long calDateDiffer(String s){
-         String[] splited = s.split("/");
+        String[] splited = s.split("/");
         SimpleDateFormat format = null;
 
         long now = System.currentTimeMillis();
@@ -269,7 +269,7 @@ public class SitterApplicationActivity extends Activity {
                 @SuppressLint("ResourceType") TextView t = findViewById(button.getId()-1);
                 String seletedId = t.getText().toString();
                 String[] splitedId = seletedId.split(" |\\.");
-                Toast.makeText(SitterApplicationActivity.this, "clicked : " + splitedId[0], Toast.LENGTH_SHORT).show();
+                Toast.makeText(SitterApplicationActivity.this ,splitedId[0]+"를 선택하였습니다.", Toast.LENGTH_SHORT).show();
 
                 postFirebaseDB(splitedId[0]);
                 finish();

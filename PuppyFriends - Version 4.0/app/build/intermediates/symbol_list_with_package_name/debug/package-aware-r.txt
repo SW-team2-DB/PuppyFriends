@@ -2349,9 +2349,11 @@ drawable rounded_fg
 drawable rounded_layout
 drawable send
 drawable side_nav_bar
+drawable sitter_type_img
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable user_type_img
 id ALT
 id AlreadyMember
 id BL_TR
@@ -2509,6 +2511,7 @@ id center
 id center_horizontal
 id center_vertical
 id chains
+id check_status
 id checkbox
 id checked
 id chip
@@ -2975,6 +2978,7 @@ id user_address
 id user_age
 id user_age_inp_txt
 id user_gender
+id user_id
 id user_info_layout
 id user_info_view
 id user_loc
@@ -3131,6 +3135,7 @@ layout layout_custom_dialog_edit_age
 layout layout_custom_dialog_edit_matching_loc
 layout layout_custom_dialog_edit_name
 layout layout_custom_dialog_edit_phoneno
+layout matching_view
 layout matchinglist
 layout meeting
 layout meeting_result

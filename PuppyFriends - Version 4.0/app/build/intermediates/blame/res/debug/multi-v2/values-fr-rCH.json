@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\lee\\test\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fr-rCH\\values-fr-rCH.xml",
+            "outputFile": "C:\\Users\\lee\\test4\\PuppyFriends\\PuppyFriends - Version 4.0\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-fr-rCH\\values-fr-rCH.xml",
             "map": [
                 {
                     "source": "C:\\Users\\lee\\.gradle\\caches\\transforms-2\\files-2.1\\a096ae98c1f0b2acf306750f43cd5bd0\\jetified-firebase-ui-auth-4.3.1\\res\\values-fr-rCH\\values-fr-rCH.xml",

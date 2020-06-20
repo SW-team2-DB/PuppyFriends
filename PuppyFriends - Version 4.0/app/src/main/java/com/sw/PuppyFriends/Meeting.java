@@ -48,7 +48,7 @@ public class Meeting extends AppCompatActivity {
         matching_id = intent.getExtras().getString("matching_id");
         owner_id = intent.getExtras().getString("owner_id");
         sitter_id = intent.getExtras().getString("sitter_id");
-        Toast.makeText(Meeting.this, "matching id : " + matching_id, Toast.LENGTH_SHORT).show();
+        // Toast.makeText(Meeting.this, "matching id : " + matching_id+" ", Toast.LENGTH_SHORT).show();
 
         databaseReference.child("matching").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -108,7 +108,7 @@ public class Meeting extends AppCompatActivity {
 
                 //데이터베이스에 올리기
                 if(date.isEmpty()) Toast.makeText(getApplicationContext(), "날짜를 입력해주세요", Toast.LENGTH_LONG).show();
-                else if(detail1.isEmpty() || detail2.isEmpty() || detail3.isEmpty() || detail4.isEmpty() || detail5.isEmpty()){
+                else if(detail1.isEmpty() || detail2.isEmpty() || detail3.isEmpty() || detail4.isEmpty() || detail5.isEmpty()||detail7.isEmpty()){
                     Toast.makeText(getApplicationContext(), "빈 칸을 채워주세요", Toast.LENGTH_LONG).show();
                 }
                 else if(fee.isEmpty()) Toast.makeText(getApplicationContext(), "최종 가격을 입력해주세요", Toast.LENGTH_LONG).show();

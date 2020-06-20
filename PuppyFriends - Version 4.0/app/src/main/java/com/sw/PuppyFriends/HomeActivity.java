@@ -40,7 +40,7 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         id = intent.getExtras().getString("id");
-        Toast.makeText(HomeActivity.this, "ID : " + id, Toast.LENGTH_SHORT).show();
+        Toast.makeText(HomeActivity.this, "ID : " + id+" 로 로그인 하였습니다.", Toast.LENGTH_SHORT).show();
 
         searchSitterButton = (ImageButton) findViewById(R.id.search);
         doSitterButton = (ImageButton) findViewById(R.id.sitter);
@@ -116,14 +116,14 @@ public class HomeActivity extends AppCompatActivity {
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.action_favorites:
-                                Toast.makeText(getApplicationContext(), "Favorites", Toast.LENGTH_SHORT).show();
+                             //   Toast.makeText(getApplicationContext(), "Favorites", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(HomeActivity.this, Favorite.class);
                                 intent.putExtra("id",id);
 
                                 startActivity(intent);
                                 break;
                             case R.id.action_home:
-                                Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
+                               // Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.action_profile:
                                 Intent intentProfile = new Intent(HomeActivity.this, ProfileActivity.class);
