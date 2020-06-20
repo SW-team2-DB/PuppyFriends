@@ -68,6 +68,7 @@ public class SettingDetailInfoActivity extends AppCompatActivity {
 
     TextView dateTxt;
     TextView genderTxt;
+    TextView loc_radio_btn_group;
 
     byte isChecked = 0;
     boolean flag = false;
@@ -107,7 +108,7 @@ public class SettingDetailInfoActivity extends AppCompatActivity {
         userNameTxt = findViewById(R.id.user_name_inp_txt);
         userAgeTxt = findViewById(R.id.user_age_inp_txt);
 
-        locRadioGroup = findViewById(R.id.loc_radio_btn_group);
+       // locRadioGroup = findViewById(R.id.loc_radio_btn_group);
 
         userAddress = findViewById(R.id.user_address);  //상세주소
         genderTxt = findViewById(R.id.gender_txt);
@@ -117,6 +118,8 @@ public class SettingDetailInfoActivity extends AppCompatActivity {
         priceTxt = findViewById(R.id.price_inp_txt);
 
         dateTxt = findViewById(R.id.contect_info_txt);
+
+        loc_radio_btn_group = findViewById(R.id.loc_radio_btn_group);
 
         //프로필에서 겹치는 정보 다시 입력하지 않게 정보 가져오기
         // 이름 띄우기
@@ -144,11 +147,39 @@ public class SettingDetailInfoActivity extends AppCompatActivity {
             }
         });
 
+        //성별 띄우기
         databaseReference.child("gender").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 genderTxt.setText(dataSnapshot.getValue().toString());
                 gender = dataSnapshot.getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        //loc 띄우기
+        databaseReference.child("loc").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                loc_radio_btn_group.setText(dataSnapshot.getValue().toString());
+                loc = dataSnapshot.getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        // 나이 띄우기
+        databaseReference.child("age").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                userAgeTxt.setText(dataSnapshot.getValue().toString()+"살");
             }
 
             @Override
@@ -214,18 +245,7 @@ public class SettingDetailInfoActivity extends AppCompatActivity {
 //            }
 //        });
 
-        // 나이 띄우기
-        databaseReference.child("age").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                userAgeTxt.setText(dataSnapshot.getValue().toString()+"살");
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
 
 
         //설정한 값 받아오기
@@ -309,21 +329,7 @@ public class SettingDetailInfoActivity extends AppCompatActivity {
                         }
 
                         if(!location.isEmpty()){
-                            if(location.equals("대덕구")){
-                                ((RadioButton)locRadioGroup.getChildAt(0)).setChecked(true);
-                            }
-                            else if(location.equals("유성구")){
-                                ((RadioButton)locRadioGroup.getChildAt(1)).setChecked(true);
-                            }
-                            else if(location.equals("동구")){
-                                ((RadioButton)locRadioGroup.getChildAt(2)).setChecked(true);
-                            }
-                            else if(location.equals("서구")){
-                                ((RadioButton)locRadioGroup.getChildAt(3)).setChecked(true);
-                            }
-                            else if(location.equals("중구")){
-                                ((RadioButton)locRadioGroup.getChildAt(4)).setChecked(true);
-                            }
+                           loc_radio_btn_group.setText(location);
                         }
 
                         if(!user_age.isEmpty()){
@@ -351,7 +357,7 @@ public class SettingDetailInfoActivity extends AppCompatActivity {
             }
         });
 
-        locRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+    /*    locRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId){
@@ -372,7 +378,7 @@ public class SettingDetailInfoActivity extends AppCompatActivity {
                         break;
                 }
             }
-        });
+        });*/
 
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -117,48 +117,13 @@
         android:textSize="20dp"
         android:textStyle="bold" />
 
-        <RadioGroup
+        <TextView
             android:id="@+id/loc_radio_btn_group"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <RadioButton
-                android:id="@+id/loc1_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="7dp"
-                android:hint="대덕구" />
-
-            <RadioButton
-                android:id="@+id/loc2_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="7dp"
-                android:hint="유성구" />
-
-            <RadioButton
-                android:id="@+id/loc3_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="7dp"
-                android:hint="동구" />
-
-            <RadioButton
-                android:id="@+id/loc4_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="7dp"
-                android:hint="서구" />
-
-            <RadioButton
-                android:id="@+id/loc5_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="7dp"
-                android:hint="중구" />
-
-        </RadioGroup>
+            android:hint="원하는 매칭 지역"
+            android:layout_margin="10dp"
+            android:gravity="center"/>
 
         <EditText
             android:id="@+id/user_address"
