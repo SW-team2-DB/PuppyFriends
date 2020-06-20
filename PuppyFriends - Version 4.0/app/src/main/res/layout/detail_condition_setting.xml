@@ -123,7 +123,8 @@
             android:layout_height="wrap_content"
             android:hint="원하는 매칭 지역"
             android:layout_margin="10dp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/user_address"
