@@ -35,7 +35,10 @@ public class Login extends AppCompatActivity {
     String usermail, pass;
     private FirebaseAuth auth;
     private Button SignInButton;
+    CheckBox Auto_LogIn;
 
+    SharedPreferences setting;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +48,17 @@ public class Login extends AppCompatActivity {
         SignInMail = (EditText) findViewById(R.id.SignInMail);
         SignInPass = (EditText) findViewById(R.id.SignInPass);
         SignInButton = (Button) findViewById(R.id.SignInButton);
+        Auto_LogIn = (CheckBox) findViewById(R.id.Auto_LogIn);
         auth = FirebaseAuth.getInstance();
 
+        setting = getSharedPreferences("setting", 0);
+        editor= setting.edit();
 
+        if(setting.getBoolean("Auto_Login_enabled", false)){
+            SignInMail.setText(setting.getString("ID", ""));
+            SignInPass.setText(setting.getString("PW", ""));
+            Auto_LogIn.setChecked(true);
+        }
 
         SignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,6 +142,31 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        Auto_LogIn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // TODO Auto-generated method stub
+                if(isChecked){
+                    String ID = SignInMail.getText().toString();
+                    String PW = SignInPass.getText().toString();
+
+                    editor.putString("ID", ID);
+                    editor.putString("PW", PW);
+                    editor.putBoolean("Auto_Login_enabled", true);
+                    editor.commit();
+                }else{
+                    /**
+                     * remove로 지우는것은 부분삭제
+                     * clear로 지우는것은 전체 삭제 입니다
+                     */
+//					editor.remove("ID");
+//					editor.remove("PW");
+//					editor.remove("Auto_Login_enabled");
+                    editor.clear();
+                    editor.commit();
+                }
+            }
+        });
 
     }
 

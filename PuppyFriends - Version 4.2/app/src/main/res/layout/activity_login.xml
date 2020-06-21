@@ -53,6 +53,13 @@
                     android:hint="@string/password"
                     android:inputType="textPassword" />
 
+                <CheckBox
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="로그인 정보 기억하기"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/Auto_LogIn"
+                    android:layout_below="@+id/input_PW"/>
 
                 <Button
                     android:id="@+id/SignInButton"
