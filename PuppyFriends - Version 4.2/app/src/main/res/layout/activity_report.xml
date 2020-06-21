@@ -14,7 +14,7 @@
         android:orientation="vertical"
         android:padding="12dp"
         android:gravity="bottom"
-        android:background="@color/colorPrimary">
+        android:background="@drawable/title_bar">
 
     <TextView
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         android:layout_marginTop="30dp"
         android:text="신고하기"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="30dp"
         android:textStyle="bold" />
 
@@ -86,7 +86,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
-        android:background="@color/blue3"
+        android:background="@drawable/title_bar"
         android:text="신고하기"
         android:textColor="@color/white"
         android:textSize="18sp"

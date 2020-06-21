@@ -49,7 +49,7 @@
 3.서로 합의된 내용에 동의를 해야 매칭을 진행할 수 있습니다.\n
 4.서로간의 신원 확인 및 비상연락처를 교환하는 것을 권고합니다.\n
 (이에 따른 불이익에 따른 책임은 본인에게 있습니다.)\n"
-                        android:textSize="30dp"
+                        android:textSize="25dp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </ScrollView>
@@ -67,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#5D6CBF"
+                android:background="@drawable/title_bar"
                 android:text="동의하지 않음"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -78,10 +78,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#5D6CBF"
+                android:background="@drawable/title_bar"
                 android:text="동의함"
                 android:textColor="@color/white"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 

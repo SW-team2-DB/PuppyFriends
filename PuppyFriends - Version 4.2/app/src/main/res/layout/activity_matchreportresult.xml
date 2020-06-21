@@ -20,7 +20,7 @@
                 android:id="@+id/button_applypetsitter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/title_bar"
                 android:text="돌봄일지"
                 android:textColor="@color/colorWhite"
                 android:textSize="24sp"
@@ -29,6 +29,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/border"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal"
                 >
@@ -54,6 +55,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/border"
                 android:layout_marginTop="10dp">
 
                 <TextView
@@ -99,6 +101,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/border"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
@@ -134,6 +137,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/border"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
@@ -158,6 +162,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/border"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
@@ -182,6 +187,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/border"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
@@ -214,6 +220,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/border"
                 android:orientation="horizontal">
 
                 <TextView

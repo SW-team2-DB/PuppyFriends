@@ -103,7 +103,7 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <Button android:background="@color/blue3"
+            <Button android:background="@drawable/title_bar"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:layout_weight="1"

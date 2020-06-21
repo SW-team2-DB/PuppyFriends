@@ -39,7 +39,7 @@
 
                     <TextView
                         android:id="@+id/textView"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="제 1조 \n 이 약관은 puppyfriends가 제공하는 펫시터 중개 서비스 입니다.\n
  제 2 조 (약관의 명시, 효력 및 변경)\n
@@ -82,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/blue3"
+                android:background="@drawable/title_bar"
                 android:text="동의하지 않음"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
@@ -93,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/blue3"
+                android:background="@drawable/title_bar"
                 android:text="동의함"
                 android:textColor="@color/white"
                 android:textSize="18sp"

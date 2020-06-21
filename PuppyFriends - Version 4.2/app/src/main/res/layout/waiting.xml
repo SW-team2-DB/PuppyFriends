@@ -22,7 +22,8 @@
                 android:text="waiting"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="50dp" />
+                android:textSize="50dp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/cancelbtn"
@@ -31,7 +32,7 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="100dp"
                 android:layout_marginRight="30dp"
-                android:background="@color/blue4"
+                android:background="@drawable/mainbtn"
                 android:text="매칭 취소"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"

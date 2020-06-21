@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/ratingtoplayout"
@@ -16,16 +15,21 @@
             android:id="@+id/ratingtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
             android:text="TextView"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textColor="@color/colorAccent"
+            android:textSize="25sp"
+            android:textStyle="bold" />>
 
         <TextView
             android:id="@+id/ratingdetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_margin="5dp"
+            android:text="TextView"
+            android:textColor="@color/purple3"
+            android:textSize="20sp"
+            android:textStyle="bold" />>
     </LinearLayout>
 
     <ScrollView
@@ -221,6 +225,7 @@
                 android:ems="10"
                 android:gravity="top"
                 android:hint="(이곳에 후기를 남겨주세요)"
+                android:background="@drawable/border"
                 android:inputType="textPersonName"
                 android:textColor="#000000" />
 
@@ -238,7 +243,7 @@
             android:id="@+id/ratingbtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/title_bar"
             android:text="등록하기"
             android:textColor="@color/white"
             android:textSize="20dp"

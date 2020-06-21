@@ -209,14 +209,15 @@
                 android:textSize="20sp"
                 android:text="@string/email_address"
                 android:textColor="@color/colorPrimaryDark"/>
+
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/ok"
                 android:id="@+id/btnSaveButton"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
                 android:layout_marginTop="70dp"
-                android:background="@drawable/custom_button"
-                android:textColor="@color/colorPrimaryDark"/>
+                android:background="@drawable/title_bar"
+                android:text="@string/ok"
+                android:textColor="@color/colorPrimaryDark" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

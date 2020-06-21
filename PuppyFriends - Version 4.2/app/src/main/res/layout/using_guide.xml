@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
-    android:layout_margin="10dp"
-    android:orientation="vertical"
-    android:background="@color/background">
+    android:layout_margin="20dp"
+    android:background="@color/background"
+    android:orientation="vertical">
 
     <Button
         android:id="@+id/button_applypetsitter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/title_bar"
         android:text="어플 이용 안내"
         android:textColor="@color/colorWhite"
         android:textSize="24sp"
@@ -38,24 +39,103 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        android:text="* 팻시터 구하기"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:text="- 팻시터를 모집할 수 있는 기능입니다.\n" />
+
+                    <TextView
                         android:id="@+id/textView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/white"
-                        android:text="* 팻시터 구하기\n
- - 팻시터를 모집할 수 있는 기능입니다.\n
-1. 돌봄 확인 버튼을 클릭합니다.\n\n
-2. 최초 이용시 본인과 반려견의 정보를 입력합니다.\n
+                        android:background="@color/colorWhite"
+                        android:text="
+1. 팻시터 구하기 버튼을 클릭합니다.\n"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        app:srcCompat="@drawable/guidecon1" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/colorWhite"
+                        android:text="2. 최초 이용시 본인과 반려견의 정보를 입력합니다.\n
 정보 입력창의 나이와 가격에는 단위를 뺀 숫자만 적습니다.
 정보를 빈칸 없이 모두 입력 후 'NEXT' 버튼을 누르면
-회원님의 정보가 팻시터들에게 보여지게 됩니다.\n\n
+회원님의 정보가 팻시터들에게 보여지게 됩니다.\n\n"
+                        android:textColor="@color/black"
+                        android:textSize="15dp" />
 
-3. 팻시터들은 회원님의 정보를 보고, 팻시팅을 신청합니다.\n
-회원님은 신청한 팻시터들의 프로필을 확인해 마음에 드는
- 팻시터를 선택 후 '매칭 진행하기'버튼을 눌러 사전만남을
- 진행합니다.\n\n
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        app:srcCompat="@drawable/guidecon2" />
 
-4. 사전만남 화면에서 아래의 정보를 입력 후 사전만남을 진행합니다.\n
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="3. 돌봄 확인 버튼을 클릭합니다.\n\n"
+                        android:textColor="@color/black"
+                        android:background="@color/colorWhite"
+                        android:textSize="15dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        app:srcCompat="@drawable/guidecon3" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="4. 팻시터들은 회원님의 정보를 보고, 조건이 맞다면 팻시팅을 신청합니다.
+신청한 팻시터들의 프로필을 확인해 마음에 드는
+ 팻시터를 선택 후 사전만남을 진행합니다.\n\n"
+                        android:textColor="@color/black"
+                        android:background="@color/colorWhite"
+                        android:textSize="15dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        app:srcCompat="@drawable/guidecon4" />
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="5. 사전만남 화면에서 아래의 정보를 입력 후 사전만남을 진행합니다.\n
  - 장소: 팻시팅이 진행될 장소를 입력합니다.\n
  - 밥 주는 시간: 팻에게 먹이를 주는 시간을 입력합니다.\n
  - 사료 위치: 사료 또는 먹이가 있는 위치를 입력합니다.\n
@@ -64,20 +144,65 @@
  - 특이 사항: 본인의 반려견을 돌보는데 필요한 특이사항을 입력합니다.\n
  - 돌봄 시간: 돌봄이 진행될 시간을 입력합니다. 예) 2시간 => 120(숫자만 입력)\n
  - 기타: 기타 팻시터가 알아두어야 할 정보를 입력합니다.\n
- - 가격: 팻시터에게 지급하기를 원하는 가격을 입력합니다.\n\n
+ - 가격: 팻시터에게 지급하기를 원하는 가격을 입력합니다.\n\n"
+                        android:textColor="@color/black"
+                        android:background="@color/colorWhite"
+                        android:layout_marginTop="10dp"
+                        android:textSize="15dp" />
 
-5. 팻시터와의 사전만남에서 제반 조건이 합의되면 합의된 정보를 바탕으로
-팻시팅이 진행됩니다.\n '돌봄 진행중'화면에서\n
+                    <ImageView
+                        android:id="@+id/imageView6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        app:srcCompat="@drawable/guidecon5" />
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="6. 팻시터와의 사전만남에서 제반 조건이 합의되면 합의된 정보를 바탕으로
+팻시팅이 진행됩니다.\n
+'돌봄 진행중'화면에서\n
  - '연락하기': 클릭 시 팻시터와 채팅이 연결됩니다.\n
  - '돌봄 끝내기': 클릭 시 돌봄이 종료되니, 팻시터와 사전 협의를 거친 후 클릭 바랍니다.\n
- - '남은시간': 남은 돌봄 시간이 '분'단위로 표시됩니다.\n
+ - '남은시간': 남은 돌봄 시간이 '분'단위로 표시됩니다.\n\n"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/colorWhite"
+                        android:textSize="15dp" />
 
-6. 돌봄이 종료되면 해당 팻시터에 대한 평가를 진행합니다.\n
+                    <ImageView
+                        android:id="@+id/imageView7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        app:srcCompat="@drawable/guidecon6" />
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="7. 돌봄이 종료되면 해당 팻시터에 대한 평가를 진행합니다.
 평점과 후기를 작성할 수 있으며, 회원님의 평가가 팻시터의
-평판에 영향을 미칠 수 있으므로 솔직하고, 신중하게 평가하시기 바랍니다.\n\n\n\n
+평판에 영향을 미칠 수 있으므로 솔직하고, 신중하게 평가하시기 바랍니다.\n\n\n\n"
+                        android:textColor="@color/black"
+                        android:background="@color/colorWhite"
+                        android:layout_marginTop="10dp"
+                        android:textSize="15dp" />
 
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        app:srcCompat="@drawable/guidecon7" />
 
-* 팻시팅 하기\n\n
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="* 팻시팅 하기\n\n
  - 팻시터가 될 수 있는 기능입니다.\n
 1. 돌봄 확인 버튼을 클릭합니다.\n\n
 2. 메인화면에서 '팻시팅 하기' 버튼 클릭 후 아래의 정보를 입력합니다.\n
@@ -108,10 +233,11 @@
 
 6. 돌봄 일지를 작성한 후 견주에 대한 평가를 진행합니다.\n
  팻시터를 충분히 배려하였는지, 특이사항에 대한 안내는 제대로 진행되었는지
- 객관적으로 평가합니다.
-"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
+ 객관적으로 평가합니다."
+                        android:textColor="@color/black"
+                        android:background="@color/colorWhite"
+                        android:layout_marginTop="10dp"
+                        android:textSize="15dp"/>
                 </LinearLayout>
             </ScrollView>
 
@@ -128,7 +254,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#5D6CBF"
+                android:background="@drawable/mainbtn"
                 android:text="이전 화면으로"
                 android:textColor="@color/white"
                 android:textSize="18sp"
