@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <com.google.android.material.appbar.AppBarLayout
@@ -52,14 +52,16 @@
                 android:layout_marginTop="30dp"
                 android:textSize="30sp"
                 android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/TextViewName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/name"
-                android:textSize="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:textColor="@color/colorPrimaryDark"/>
+                android:text="@string/name"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20dp" />
 
             <EditText
                 android:id="@+id/EditTextName"
@@ -87,12 +89,14 @@
                 android:ems="10"
                 android:hint="ex: 15"
                 android:inputType="number" />
+
             <TextView
                 android:id="@+id/TextViewSurName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/address"
                 android:textSize="20dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
                 android:textColor="@color/colorPrimaryDark"/>
 
@@ -146,6 +150,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/phone_number"
                 android:textSize="20dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
                 android:textColor="@color/colorPrimaryDark"/>
 
@@ -163,6 +168,7 @@
                 android:layout_height="wrap_content"
                 android:text="성별:"
                 android:textSize="20dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
                 android:textColor="@color/colorPrimaryDark"/>
 
@@ -200,6 +206,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/e_mail"
                 android:textSize="20dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
                 android:textColor="@color/colorPrimaryDark"/>
             <TextView
@@ -215,7 +222,7 @@
                 android:text="@string/ok"
                 android:id="@+id/btnSaveButton"
                 android:layout_marginTop="70dp"
-                android:background="@drawable/custom_button"
+                android:background="@drawable/title_bar"
                 android:textColor="@color/colorPrimaryDark"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
