@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends - Version 4.2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw690dp-v13\\values-sw690dp-v13.xml",
+            "outputFile": "C:\\Users\\iamgu\\Desktop\\git\\PuppyFriends\\PuppyFriends - Version 4.2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw690dp-v13\\values-sw690dp-v13.xml",
             "map": [
                 {
                     "source": "C:\\Users\\iamgu\\.gradle\\caches\\transforms-2\\files-2.1\\d230c644dfd12a900f773f82b3f3d12d\\jetified-sdp-android-1.0.3\\res\\values-sw690dp-v13\\values-sw690dp-v13.xml",
