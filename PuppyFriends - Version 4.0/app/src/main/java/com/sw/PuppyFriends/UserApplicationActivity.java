@@ -92,9 +92,9 @@ public class UserApplicationActivity extends AppCompatActivity {
                     if(aid.equals(mId)){ // sitting_application_info에서 mId와 같은 id를 찾아서 매칭아이디 가져옴
                         /////////////////////
                         if(postSnapshot.child("matching_id").exists()){
-                        //////////////////////
-                        matching_id = postSnapshot.child("matching_id").getValue().toString();
-                        //////////////////
+                            //////////////////////
+                            matching_id = postSnapshot.child("matching_id").getValue().toString();
+                            //////////////////
                         }
                         //////////////////
                     }
@@ -144,11 +144,11 @@ public class UserApplicationActivity extends AppCompatActivity {
                     if(postSnapshot.child("application_id").exists()) {
                         ///////////////////////////
 
-                    // 자신을 선택한 펫시터가 있으면
-                    if(get.application_id.equals(id)){
-                        // 목록 보여줌
-                        addLayout(key + ".com", id);
-                    }
+                        // 자신을 선택한 펫시터가 있으면
+                        if(get.application_id.equals(id)){
+                            // 목록 보여줌
+                            addLayout(key + ".com", id);
+                        }
 
                     }
                     ///////////////////////
@@ -268,6 +268,7 @@ public class UserApplicationActivity extends AppCompatActivity {
                         intent.putExtra("user_name", user_name);
 
                         startActivity(intent);
+                        finish();
                     }
                 });
             }
@@ -359,8 +360,8 @@ public class UserApplicationActivity extends AppCompatActivity {
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String[] splitedId = seletedId.split(" |\\.");
-                Toast.makeText(UserApplicationActivity.this, splitedId[0], Toast.LENGTH_SHORT).show();
+                final String[] splitedId = seletedId.split(" |\\.");
+                // Toast.makeText(UserApplicationActivity.this, splitedId[0], Toast.LENGTH_SHORT).show();
 
                 getMatchingId(splitedId[0]);
                 updateFirebaseDB(splitedId[0]);
@@ -376,7 +377,7 @@ public class UserApplicationActivity extends AppCompatActivity {
 ////////////////////////////////////////////
                         Intent intent = new Intent(UserApplicationActivity.this, Meetingbefore_agree.class);
                         intent.putExtra("owner_id", id);
-                        intent.putExtra("sitter_id", seletedId);
+                        intent.putExtra("sitter_id", splitedId[0]);
                         intent.putExtra("matching_id", matching_id);
                         startActivity(intent);
                         finish();

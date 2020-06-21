@@ -42,7 +42,7 @@ public class ReportActivity extends Activity {
                 String message = textMessage.getText().toString();
                 if (title.length()>0 && message.length()>0) {
                     databaseReference.child("report").child(id).child(title).setValue(message);
-                    Toast.makeText(getBaseContext(), "보냄", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "신고 접수가 완료되었습니다.", Toast.LENGTH_SHORT).show();
                 }else
                     Toast.makeText(getBaseContext(), "내용을 입력하세요", Toast.LENGTH_SHORT).show();
             }

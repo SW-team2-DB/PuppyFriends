@@ -228,7 +228,8 @@ public class Rating extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(terminateOK) {
                     for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
-                        postSnapshot.getRef().removeValue();
+//                        postSnapshot.getRef().removeValue();
+                            postSnapshot.getRef().setValue("");
                     }
                 }
             }
@@ -248,7 +249,8 @@ public class Rating extends AppCompatActivity {
 //                    dataSnapshot.child("application_id").getRef().setValue("");
                     databaseReference.child("sitting_application_info").push().child("application_id").setValue(my_id+":done");
                     for(DataSnapshot postSnapshot : dataSnapshot.getChildren()){
-                        postSnapshot.getRef().removeValue();
+//                        postSnapshot.getRef().removeValue();
+                        postSnapshot.getRef().setValue("");
                     }
 
 

@@ -35,7 +35,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = inputEmail.getText().toString().trim();
                 if (TextUtils.isEmpty(email)) {
-                    Toast.makeText(getApplication(), "Enter your mail address", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplication(), "이메일을 입력해 주세요.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -44,10 +44,10 @@ public class ResetPasswordActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(ResetPasswordActivity.this, "We send you an e-mail", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ResetPasswordActivity.this, "삭제성공!", Toast.LENGTH_SHORT).show();
 
                                 } else {
-                                    Toast.makeText(ResetPasswordActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(ResetPasswordActivity.this, "Error!", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

@@ -64,9 +64,9 @@ public class Login extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (!task.isSuccessful()) {
                                     if (password.length() < 5) {
-                                        Toast.makeText(getApplicationContext(),"비밀번호는 5자리 이상이어야 합니다",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(),"비밀번호는 5자리 이상이어야 합니다.",Toast.LENGTH_SHORT).show();
                                     } else {
-                                        Toast.makeText(getApplicationContext(),"에러",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(),"Error!",Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }
@@ -76,52 +76,52 @@ public class Login extends AppCompatActivity {
                 pass = SignInPass.getText().toString();
                 final String user = usermail.substring(0, usermail.lastIndexOf("@"));
 
-                    String url = "https://authentication-1c209.firebaseio.com/users.json";
+                String url = "https://authentication-1c209.firebaseio.com/users.json";
 
                 final ProgressDialog pd = new ProgressDialog(Login.this);
                 pd.setMessage("Loading...");
                 pd.show();
 
-                    StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>(){
-                        @Override
-                        public void onResponse(String s) {
-                            if(s.equals("null")){
-                                Toast.makeText(Login.this, "user not found", Toast.LENGTH_LONG).show();
-                            }
-                            else{
-                                try {
-                                    JSONObject obj = new JSONObject(s);
+                StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>(){
+                    @Override
+                    public void onResponse(String s) {
+                        if(s.equals("null")){
+                            Toast.makeText(Login.this, "ID, 비밀번호를 다시 확인해 주세요.", Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            try {
+                                JSONObject obj = new JSONObject(s);
 
-                                    if(!obj.has(user)){
-                                        Toast.makeText(Login.this, "user not found", Toast.LENGTH_LONG).show();
-                                    }
-                                    else if(obj.getJSONObject(user).getString("password").equals(pass)){
-                                        UserDetails.username = user;
-                                        UserDetails.password = pass;
-                                        Intent intent = new Intent(Login.this, HomeActivity.class);
-                                        intent.putExtra("id", SignInMail.getText().toString().split("\\.")[0]);
-                                        startActivity(intent);
-                                    }
-                                    else {
-                                        Toast.makeText(Login.this, "incorrect password", Toast.LENGTH_LONG).show();
-                                    }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
+                                if(!obj.has(user)){
+                                    Toast.makeText(Login.this, "ID, 비밀번호를 다시 확인해 주세요.", Toast.LENGTH_LONG).show();
                                 }
+                                else if(obj.getJSONObject(user).getString("password").equals(pass)){
+                                    UserDetails.username = user;
+                                    UserDetails.password = pass;
+                                    Intent intent = new Intent(Login.this, HomeActivity.class);
+                                    intent.putExtra("id", SignInMail.getText().toString().split("\\.")[0]);
+                                    startActivity(intent);
+                                }
+                                else {
+                                    Toast.makeText(Login.this, "ID, 비밀번호를 다시 확인해 주세요.", Toast.LENGTH_LONG).show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
-
-                            pd.dismiss();
                         }
-                    },new Response.ErrorListener(){
-                        @Override
-                        public void onErrorResponse(VolleyError volleyError) {
-                            System.out.println("" + volleyError);
-                            pd.dismiss();
-                        }
-                    });
 
-                    RequestQueue rQueue = Volley.newRequestQueue(Login.this);
-                    rQueue.add(request);
+                        pd.dismiss();
+                    }
+                },new Response.ErrorListener(){
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        System.out.println("" + volleyError);
+                        pd.dismiss();
+                    }
+                });
+
+                RequestQueue rQueue = Volley.newRequestQueue(Login.this);
+                rQueue.add(request);
             }
         });
     }
