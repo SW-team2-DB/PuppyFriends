@@ -62,10 +62,9 @@ public class Matchinglist extends AppCompatActivity {
                         if(!dataSnapshot.exists() || !dataSnapshot.child("desired_price").exists() || dataSnapshot.child("desired_price").getValue().toString().equals("")){
                             Toast.makeText(Matchinglist.this, "확인할 목록이 없습니다.", Toast.LENGTH_SHORT).show();
                         } else {
-                            Intent intent = new Intent(getApplicationContext(), UserApplicationActivity.class);
+                            Intent intent = new Intent(Matchinglist.this, UserApplicationActivity.class);
                             intent.putExtra("id", id);
                             startActivity(intent);
-                            finish();
                         }
                     }
 
