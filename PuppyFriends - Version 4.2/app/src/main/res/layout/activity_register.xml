@@ -7,13 +7,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:stretchColumns="1">
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/login" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="285dp"
+            android:layout_gravity="center"
+            android:src="@drawable/login" />
 
         <TextView
             android:id="@+id/sign_up_TextView"
@@ -21,7 +21,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
             android:text="@string/sign_up"
             android:clickable="true"
             android:gravity="center"

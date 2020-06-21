@@ -24,7 +24,13 @@
         android:label="PuppyFriends"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <service
+            android:name="com.sw.PuppyFriends.TimerService"
+            android:enabled="true"
+            android:exported="true" />
+
         <activity android:name="com.sw.PuppyFriends.IntroActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -62,8 +68,7 @@
         <activity android:name="com.sw.PuppyFriends.Chat" />
         <activity android:name="com.sw.PuppyFriends.Waiting" />
         <activity android:name="com.sw.PuppyFriends.SittingOngoing" />
-        <activity android:name="com.sw.PuppyFriends.Rating" >
-        </activity>
+        <activity android:name="com.sw.PuppyFriends.Rating" />
         <activity android:name="com.sw.PuppyFriends.tos" />
         <activity android:name="com.sw.PuppyFriends.Meetingbefore_agree" />
         <activity android:name="com.sw.PuppyFriends.Matchinglist" />
