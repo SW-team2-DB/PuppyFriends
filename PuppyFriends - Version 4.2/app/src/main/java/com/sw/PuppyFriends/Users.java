@@ -72,6 +72,7 @@ public class Users extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 UserDetails.chatWith = al.get(position);
                 startActivity(new Intent(Users.this, Chat.class));
+                finish();
             }
         });
     }
@@ -125,5 +126,6 @@ public class Users extends AppCompatActivity {
         Log.d("intent moving", "true");
         UserDetails.chatWith = al.get(position);
         startActivity(new Intent(Users.this, Chat.class));
+        finish();
     }
 }
